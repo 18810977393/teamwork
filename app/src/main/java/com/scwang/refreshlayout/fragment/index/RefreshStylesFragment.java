@@ -56,6 +56,7 @@ public class RefreshStylesFragment extends Fragment implements AdapterView.OnIte
         FunGameBattleCity(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
         Classics(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
         Award(R.string.title_activity_style_classics,AwardActivity.class),
+
         ;
         public int nameId;
         public Class<?> clazz;
