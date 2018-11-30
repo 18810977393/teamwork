@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 
 import com.scwang.refreshlayout.R;
 
+import com.scwang.refreshlayout.activity.style.AwardActivity;
 import com.scwang.refreshlayout.activity.style.ClassicsStyleActivity;
 import com.scwang.refreshlayout.activity.style.DeliveryStyleActivity;
 import com.scwang.refreshlayout.activity.style.FlyRefreshStyleActivity;
@@ -54,6 +55,7 @@ public class RefreshStylesFragment extends Fragment implements AdapterView.OnIte
         FunGameHitBlock(R.string.title_activity_style_hit_block, FunGameHitBlockStyleActivity.class),
         FunGameBattleCity(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
         Classics(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
+        Award(R.string.title_activity_style_classics,AwardActivity.class),
         ;
         public int nameId;
         public Class<?> clazz;
@@ -130,7 +132,9 @@ public class RefreshStylesFragment extends Fragment implements AdapterView.OnIte
                                 refreshLayout.setRefreshHeader(new FunGameHitBlockHeader(getContext()));
                             } else if (refreshHeader instanceof FunGameHitBlockHeader) {
                                 refreshLayout.setRefreshHeader(new ClassicsHeader(getContext()));
-                            } else {
+                            }
+
+                            else {
                                 refreshLayout.setRefreshHeader(new RefreshHeaderWrapper(new BallPulseFooter(getContext())));
                             }
                             refreshLayout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.scwang.refreshlayout">
 
+    <uses-sdk tools:overrideLibrary="com.github.czy1121.loadinglayout" />
+
     <!-- 读取SD卡权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 网络状态权限 -->
@@ -12,9 +14,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 设备编号权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <uses-sdk
-        tools:overrideLibrary="com.github.czy1121.loadinglayout"/>
 
     <application
         android:name=".App"
@@ -33,8 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.FragmentActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.FragmentActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.style.FlyRefreshStyleActivity"
             android:label="@string/title_activity_style_fly_refresh"
@@ -50,6 +50,14 @@
         <activity
             android:name=".activity.style.FunGameHitBlockStyleActivity"
             android:label="@string/title_activity_style_hit_block"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.style.AwardActivity"
+            android:label="@string/title_activity_award"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.style.addAwardActivity"
+            android:label="addAward"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.style.DeliveryStyleActivity"
@@ -79,12 +87,14 @@
             android:name=".activity.practice.ProfilePracticeActivity"
             android:label="@string/title_activity_practice_profile"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.practice.BannerPracticeActivity"
+        <activity
+            android:name=".activity.practice.BannerPracticeActivity"
             android:label="@string/title_activity_practice_banner"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.example.SnapHelperExampleActivity"
+        <activity
+            android:name=".activity.example.SnapHelperExampleActivity"
             android:label="@string/title_activity_example_snap_helper"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
