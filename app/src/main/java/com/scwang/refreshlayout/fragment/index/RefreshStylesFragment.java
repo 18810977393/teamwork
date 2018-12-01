@@ -51,13 +51,12 @@ import static com.scwang.refreshlayout.R.id.recyclerView;
 public class RefreshStylesFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private enum Item {
-        Hidden(R.string.title_activity_style_delivery,DeliveryStyleActivity.class),
+//        Hidden(R.string.title_activity_style_delivery,DeliveryStyleActivity.class),
         FlyRefresh(R.string.title_activity_style_fly_refresh, FlyRefreshStyleActivity.class),
         FunGameHitBlock(R.string.title_activity_style_hit_block, FunGameHitBlockStyleActivity.class),
         FunGameBattleCity(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
-        Classics(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
+//        Classics(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
         Award(R.string.title_activity_style_delivery,AwardActivity.class),
-
         ;
         public int nameId;
         public Class<?> clazz;

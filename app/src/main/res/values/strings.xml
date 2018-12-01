@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">SmartRefreshLayout</string>
+    <string name="app_name">Task</string>
 
     <string name="title_style">Style</string>
     <string name="title_example">Example</string>
-    <string name="title_practice">Practice</string>
+    <string name="title_practice">Tasks</string>
 
     <string name="region_hint">unselected</string>
     <string name="region_name">selected area</string>

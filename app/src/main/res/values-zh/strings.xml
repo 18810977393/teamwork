@@ -1,9 +1,9 @@
-<resources>
-    <string name="app_name">智能刷新</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">任务</string>
 
     <string name="title_style">样式</string>
     <string name="title_example">使用</string>
-    <string name="title_practice">实战</string>
+    <string name="title_tasks">任务</string>
 
     <string name="region_hint">未选择</string>
     <string name="region_name">已选地区</string>
@@ -160,4 +160,5 @@
         //设置 Footer 为 三球动画\n
         refreshLayout.setRefreshFooter(new BallPulseFooter(this));\n\n
     </string>
+    <string name="title_practice">任务</string>
 </resources>

@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.Sorting;
@@ -27,17 +26,23 @@ import java.util.StringTokenizer;
 
 public class AwardActivity extends AppCompatActivity {
     private String selectedItem;
-    private Toolbar mToolbar;
+
     private RefreshLayout mRefreshLayout;
     private static boolean isFirstEnter = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_award);
-        Button button1 = (Button)findViewById(R.id.button1);
+        Button button1 = (Button)findViewById(R.id.button);
+        Button button2 = (Button)findViewById(R.id.button2);
 
-
-        button1.setOnClickListener(new View.OnClickListener()
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -76,13 +81,6 @@ public class AwardActivity extends AppCompatActivity {
                            dialog.show();
                     }
                 });
-        mToolbar = findViewById(R.id.toolbar);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         mRefreshLayout = findViewById(R.id.refreshLayout);
         if (isFirstEnter) {
