@@ -23,14 +23,15 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activity.IndexMainActivity"
-            android:label="@string/title_activity_index_main">
+        <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".ViewPager.ViewPagerActivity">
         </activity>
         <activity
             android:name=".activity.FragmentActivity"
@@ -95,6 +96,10 @@
             android:name=".activity.example.SnapHelperExampleActivity"
             android:label="@string/title_activity_example_snap_helper"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.IndexMainActivity"
+            android:label="@string/title_activity_index_main">
+        </activity>
     </application>
 
 </manifest>
