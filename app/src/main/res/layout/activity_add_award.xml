@@ -16,7 +16,8 @@
         android:layout_marginTop="134dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:hint="耗费成就点数" />
+        tools:hint="耗费成就点数"
+        android:layout_alignLeft="@+id/noteTitle" />
 
     <EditText
         android:id="@+id/noteTitle"
@@ -65,6 +66,8 @@
         android:layout_marginStart="29dp"
         android:background="@color/colorPrimary"
         android:onClick="addNote"
-        android:text="添加" />
+        android:text="添加"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="29dp" />
 
 </RelativeLayout>

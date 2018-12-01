@@ -41,6 +41,7 @@ public class SplashActivity extends AppCompatActivity {
                 }else{//以后就没有引导页面了
                     startActivity(new Intent(SplashActivity.this, IndexMainActivity.class));
                 }
+                finish();
             }
         },DELAY_TIME) ;
     }

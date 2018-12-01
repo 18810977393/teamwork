@@ -36,9 +36,7 @@ public class addAwardActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
 
-                //拿到被选择项的值
                 str = (String) sp.getSelectedItem();
-                //把该值传给 TextView
             }
 
             @Override
@@ -55,29 +53,49 @@ public class addAwardActivity extends AppCompatActivity {
         String fileName = ((EditText)
                 findViewById(R.id.noteTitle))
                 .getText().toString();
-        String body = ((EditText) findViewById(R.id.pays))
+        String scores = ((EditText) findViewById(R.id.pays))
                 .getText().toString();
+        int times ;
+       if (str.equals("无限"))
+       {
+           times = Integer.MAX_VALUE;
+       }
+       else
+           {
+               times = 1;
+           }
 
-        String xxx = str;
+
+
         File parent = getFilesDir();
         File file = new File(parent, fileName);
         PrintWriter writer = null;
-        try {
-            writer = new PrintWriter(file);
-            writer.write(body);
-            writer.write(xxx);
-            finish();
-        } catch (Exception e) {
-            showAlertDialog("Error adding note", e.getMessage());
-        } finally {
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (Exception e) {
-
+        if (scores==""||scores==null)
+            showAlertDialog("添加失败", "请输入耗费成就点数");
+        else
+            {
+                if (!isNum(scores))
+                {
+                    showAlertDialog("添加失败", "耗费成就点数为整数");
+                }
+                else
+                    try {
+                    writer = new PrintWriter(file);
+                    Award award = new Award(fileName,Integer.parseInt(scores),times);
+                    writer.write(award.toString());
+                    finish();
+                }
+                catch (Exception e) {
+                    showAlertDialog("添加失败", "请输入奖励名称");
+                }
+                finally {
+                    if (writer != null) {
+                        try { writer.close();
+                        }
+                        catch (Exception e) { }
+                    }
                 }
             }
-        }
     }
 
     private void showAlertDialog(String title, String message) {
@@ -87,5 +105,8 @@ public class addAwardActivity extends AppCompatActivity {
         alertDialog.setMessage(message);
         alertDialog.show();
 
+    }
+    public static boolean isNum(String str){
+        return str.matches("^[-+]?(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$");
     }
 }

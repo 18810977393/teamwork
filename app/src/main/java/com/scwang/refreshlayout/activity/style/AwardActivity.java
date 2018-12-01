@@ -1,5 +1,7 @@
 package com.scwang.refreshlayout.activity.style;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,12 +16,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.scwang.refreshlayout.R;
+import com.scwang.refreshlayout.Sorting;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 public class AwardActivity extends AppCompatActivity {
     private String selectedItem;
@@ -31,7 +35,7 @@ public class AwardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_award);
         Button button1 = (Button)findViewById(R.id.button1);
-        Button button2 = (Button)findViewById(R.id.button2);
+
 
         button1.setOnClickListener(new View.OnClickListener()
         {
@@ -41,15 +45,6 @@ public class AwardActivity extends AppCompatActivity {
                 startActivity(new Intent(AwardActivity.this, addAwardActivity.class));
             }
         });
-        button2.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                deleteNote();
-            }
-        });
-
         ListView listView = (ListView) findViewById(
                 R.id.listView1);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -57,8 +52,28 @@ public class AwardActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView,
-                                            View view, int position, long id) {
-                        readNote(position);
+                                            View view, final int position, long id) {
+                        final int index = position;
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(AwardActivity.this);
+                        dialog.setTitle("满足奖励");
+                        dialog.setMessage("花费成就点数来满足奖励");
+                        dialog.setCancelable(false);
+                        dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String[] titles = fileList();
+                                if (titles.length >index) {
+                                    selectedItem = titles[index];
+                                    deleteNote();
+                                }
+                            }
+                        });
+                           dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                               @Override
+                               public void onClick(DialogInterface dialog, int which) {
+                               }
+                           });
+                           dialog.show();
                     }
                 });
         mToolbar = findViewById(R.id.toolbar);
@@ -75,6 +90,22 @@ public class AwardActivity extends AppCompatActivity {
             mRefreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.award_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                startActivity(new Intent(AwardActivity.this, addAwardActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
     @Override
@@ -87,18 +118,12 @@ public class AwardActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(
                 R.id.listView1);
         String[] titles = fileList();
-        ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, titles);
-        listView.setAdapter(arrayAdapter);
-    }
+        Award[] awards = new Award[titles.length];
 
-
-    private void readNote(int position) {
-        String[] titles = fileList();
-        if (titles.length > position) {
-            selectedItem = titles[position];
+        for (int i=0;i<titles.length;i++)
+        {
             File dir = getFilesDir();
-            File file = new File(dir, selectedItem);
+            File file = new File(dir,titles[i]);
             FileReader fileReader = null;
             BufferedReader bufferedReader = null;
             try {
@@ -110,34 +135,54 @@ public class AwardActivity extends AppCompatActivity {
                     sb.append(line);
                     line = bufferedReader.readLine();
                 }
-                ((TextView) findViewById(R.id.textView1)).
-                        setText(sb.toString());
-            } catch (IOException e) {
+               titles[i] = sb.toString();//将待显示的文字改为Award中的标题+成就点数+次数
 
-            } finally {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e) {
-                    }
+            } catch (IOException e) {
                 }
-                if (fileReader != null) {
-                    try {
-                        fileReader.close();
-                    } catch (IOException e) {
+                finally {
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e) {
+                        }
+                    }
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (IOException e) {
+                        }
                     }
                 }
             }
+        // 对其排序
+        for (int j=0;j<titles.length;j++)
+        {
+            awards[j] = transferAward(titles[j]);
         }
+        Sorting.shellSort(awards);
+        for (int i=0;i<awards.length;i++)
+        {
+            titles[i] = awards[i].getName()+"             "+"-"+awards[i].getScore()+"/次（"+awards[i].getTimes()+"次)";
+        }
+        ArrayAdapter<String> arrayAdapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, titles);
+        listView.setAdapter(arrayAdapter);
+
     }
 
     private void deleteNote() {
         if (selectedItem != null) {
             deleteFile(selectedItem);
             selectedItem = null;
-            ((TextView) findViewById(R.id.textView1)).setText("");
             refreshList();
         }
+    }
+
+    private Award transferAward(String x)
+    {
+        StringTokenizer stringTokenizer = new StringTokenizer(x);
+        Award award = new Award(stringTokenizer.nextToken(),Integer.parseInt(stringTokenizer.nextToken()),Integer.parseInt(stringTokenizer.nextToken()));
+        return  award;
     }
 }
 

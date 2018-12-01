@@ -42,15 +42,6 @@
                 android:gravity="center"
                 android:text="添加" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/bc_background_panel"
-                android:gravity="center"
-                android:text="删除"
-                android:visibility="visible" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -58,16 +49,8 @@
 
                 <ListView
                     android:id="@+id/listView1"
-                    android:layout_width="99dp"
-                    android:layout_height="443dp" />
-
-
-                <TextView
-                    android:id="@+id/textView1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="6sp"
-                    android:textSize="17sp" />
+                    android:layout_height="443dp" />
             </LinearLayout>
 
         </LinearLayout>
