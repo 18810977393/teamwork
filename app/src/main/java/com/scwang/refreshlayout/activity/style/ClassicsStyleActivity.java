@@ -172,9 +172,7 @@ public class ClassicsStyleActivity extends AppCompatActivity implements AdapterV
             case 橙色主题:
                 setThemeColor(android.R.color.holo_orange_light, android.R.color.holo_orange_dark);
                 break;
-//            case 加载更多:
-//                mRefreshLayout.autoLoadMore();
-//                return;
+
         }
         mRefreshLayout.autoRefresh();
     }

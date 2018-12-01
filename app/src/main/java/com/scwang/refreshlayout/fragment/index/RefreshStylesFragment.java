@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 
 import com.scwang.refreshlayout.R;
 
+
 import com.scwang.refreshlayout.activity.style.AwardActivity;
 import com.scwang.refreshlayout.activity.style.ClassicsStyleActivity;
 import com.scwang.refreshlayout.activity.style.DeliveryStyleActivity;
@@ -55,7 +56,7 @@ public class RefreshStylesFragment extends Fragment implements AdapterView.OnIte
         FunGameHitBlock(R.string.title_activity_style_hit_block, FunGameHitBlockStyleActivity.class),
         FunGameBattleCity(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
         Classics(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
-        Award(R.string.title_activity_style_classics,AwardActivity.class),
+        Award(R.string.title_activity_style_delivery,AwardActivity.class),
 
         ;
         public int nameId;

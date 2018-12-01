@@ -13,7 +13,15 @@
         android:background="#fff"
         app:titleTextColor="#fbbb"
         app:navigationIcon="@drawable/ic_arrow_back_gray_24dp"
-        app:title="@string/title_activity_style_delivery"/>
+        app:title="@string/title_activity_style_delivery"
+        />
+
+    <!--<Button-->
+        <!--android:id="@+id/button1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="68dp"-->
+        <!--android:gravity="center"-->
+        <!--android:text="添加" />-->
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
@@ -22,9 +30,11 @@
         app:srlDragRate="0.7"
         app:srlHeaderMaxDragRate="1.3"
         app:srlEnableLoadMore="false">
+
         <com.scwang.smartrefresh.header.DeliveryHeader
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
