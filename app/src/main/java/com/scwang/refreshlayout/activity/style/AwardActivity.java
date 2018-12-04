@@ -128,12 +128,12 @@ public class AwardActivity extends AppCompatActivity {
                 fileReader = new FileReader(file);
                 bufferedReader = new BufferedReader(fileReader);
                 StringBuilder sb = new StringBuilder();
-                String line = bufferedReader.readLine();
+                String line = bufferedReader.readLine()+" ";
                 while (line != null) {
                     sb.append(line);
                     line = bufferedReader.readLine();
                 }
-               titles[i] = sb.toString();//将待显示的文字改为Award中的标题+成就点数+次数
+               titles[i] +=" "+sb.toString();//将待显示的文字改为Award中的标题+成就点数+次数
 
             } catch (IOException e) {
                 }
@@ -160,12 +160,11 @@ public class AwardActivity extends AppCompatActivity {
         Sorting.shellSort(awards);
         for (int i=0;i<awards.length;i++)
         {
-            titles[i] = awards[i].getName()+"             "+"-"+awards[i].getScore()+"/次（"+awards[i].getTimes()+"次)";
+            titles[i] = awards[i].toString();//awards[i].getName()+"             "+"-"+awards[i].getScore()+"/次（"+awards[i].getTimes()+"次)";
         }
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, titles);
         listView.setAdapter(arrayAdapter);
-
     }
 
     private void deleteNote() {
@@ -178,9 +177,16 @@ public class AwardActivity extends AppCompatActivity {
 
     private Award transferAward(String x)
     {
+
         StringTokenizer stringTokenizer = new StringTokenizer(x);
-        Award award = new Award(stringTokenizer.nextToken(),Integer.parseInt(stringTokenizer.nextToken()),Integer.parseInt(stringTokenizer.nextToken()));
-        return  award;
+        if (stringTokenizer.countTokens()==3)
+        {
+            Award award = new Award(stringTokenizer.nextToken(),Integer.parseInt(stringTokenizer.nextToken()),Integer.parseInt(stringTokenizer.nextToken()));
+            return  award;
+        }
+        else
+            return null;
+
     }
 }
 

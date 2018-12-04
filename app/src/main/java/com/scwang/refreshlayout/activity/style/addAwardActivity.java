@@ -74,12 +74,10 @@ public class addAwardActivity extends AppCompatActivity {
                times = 1;
            }
 
-
-
         File parent = getFilesDir();
         File file = new File(parent, fileName);
         PrintWriter writer = null;
-        if (scores==""||scores==null)
+        if (scores.equals("")||scores.equals(null))
             showAlertDialog("添加失败", "请输入耗费成就点数");
         else
             {
@@ -89,10 +87,9 @@ public class addAwardActivity extends AppCompatActivity {
                 }
                 else
                     try {
-                    writer = new PrintWriter(file);
-                    Award award = new Award(fileName,Integer.parseInt(scores),times);
-                    writer.write(award.toString());
-                    finish();
+                        writer = new PrintWriter(file);
+                        writer.write(scores+" "+times);
+                        finish();
                 }
                 catch (Exception e) {
                     showAlertDialog("添加失败", "请输入奖励名称");
