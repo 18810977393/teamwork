@@ -152,16 +152,16 @@ public class AwardActivity extends AppCompatActivity {
                     }
                 }
             }
-        // 对其排序
-        for (int j=0;j<titles.length;j++)
-        {
-            awards[j] = transferAward(titles[j]);
-        }
-        Sorting.shellSort(awards);
-        for (int i=0;i<awards.length;i++)
-        {
-            titles[i] = awards[i].toString();//awards[i].getName()+"             "+"-"+awards[i].getScore()+"/次（"+awards[i].getTimes()+"次)";
-        }
+//        // 对其排序
+//        for (int j=0;j<titles.length;j++)
+//        {
+//            awards[j] = transferAward(titles[j]);
+//        }
+//        Sorting.shellSort(awards);
+//        for (int i=0;i<awards.length;i++)
+//        {
+//            titles[i] = awards[i].toString();//awards[i].getName()+"             "+"-"+awards[i].getScore()+"/次（"+awards[i].getTimes()+"次)";
+//        }
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, titles);
         listView.setAdapter(arrayAdapter);

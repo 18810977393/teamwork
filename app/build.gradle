@@ -78,4 +78,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    // 云存储
+    implementation 'cn.leancloud.android:avoscloud-sdk:v4.7.3'
+    implementation 'cn.leancloud.android:avoscloud-push:v4.7.3@aar'
+    implementation 'cn.leancloud.android:avoscloud-statistics:v4.7.3'
+    implementation 'cn.leancloud.android:avoscloud-feedback:v4.7.3@aar'
+    implementation 'cn.leancloud.android:avoscloud-sns:v4.7.3@aar'
+    implementation 'cn.leancloud.android:qq-sdk:1.6.1-leancloud'
+    implementation 'cn.leancloud.android:avoscloud-search:v4.7.3@aar'
 }

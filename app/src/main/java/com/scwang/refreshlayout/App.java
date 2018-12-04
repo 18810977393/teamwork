@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 
+import com.avos.avoscloud.AVOSCloud;
 import com.scwang.refreshlayout.util.DynamicTimeFormat;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
@@ -51,11 +52,12 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-      //  LeakCanary.install(this);
+        AVOSCloud.initialize(this,"SMjS1MdYMmqLwxlGG4nfQ2Ov-gzGzoHsz","x0uMwYgrXmiwp8Q6N1MrX6rs");
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            // This process is dedicated to LeakCanary for heap analysis.
+//            // You should not init your app in this process.
+//            return;
+//        }
+// LeakCanary.install(this);
     }
 }

@@ -4,12 +4,16 @@ import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.SaveCallback;
 import com.scwang.refreshlayout.R;
 
 import java.io.File;
@@ -89,6 +93,18 @@ public class addAwardActivity extends AppCompatActivity {
                     try {
                         writer = new PrintWriter(file);
                         writer.write(scores+" "+times);
+                        AVObject testObject = new AVObject("TestObject");
+                        testObject.put("Title",fileName);
+                        testObject.put("Scores",scores);
+                        testObject.put("times",times);
+                        testObject.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if(e == null){
+                                    Log.d("saved","success!");
+                                }
+                            }
+                        });
                         finish();
                 }
                 catch (Exception e) {
@@ -101,6 +117,7 @@ public class addAwardActivity extends AppCompatActivity {
                         catch (Exception e) { }
                     }
                 }
+
             }
     }
 
