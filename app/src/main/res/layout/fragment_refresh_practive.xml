@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.scwang.refreshlayout.fragment.index.RefreshStylesFragment">
+    tools:context="com.scwang.refreshlayout.fragment.index.AwardFragment">
 
     <android.support.v7.widget.Toolbar style="@style/AppTheme.Toolbar"
         android:id="@id/toolbar"
@@ -37,7 +37,7 @@
             android:scaleY="-1"/>
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-    <com.scwang.refreshlayout.activity.menu.SrcMenu
+    <com.scwang.refreshlayout.activity.MenuButton.SrcMenu
         android:id="@+id/src_menu"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -84,6 +84,6 @@
             android:tag="Sleep" />
 
 
-    </com.scwang.refreshlayout.activity.menu.SrcMenu>
+    </com.scwang.refreshlayout.activity.MenuButton.SrcMenu>
 
 </LinearLayout>

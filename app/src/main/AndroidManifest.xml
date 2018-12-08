@@ -35,71 +35,71 @@
             android:name=".activity.FragmentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.style.FlyRefreshStyleActivity"
+            android:name=".activity.Award.FlyRefreshStyleActivity"
             android:label="@string/title_activity_style_fly_refresh"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.style.ClassicsStyleActivity"
+            android:name=".activity.Award.ClassicsStyleActivity"
             android:label="@string/title_activity_style_classics"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.style.FunGameBattleCityStyleActivity"
+            android:name=".activity.Award.FunGameBattleCityStyleActivity"
             android:label="@string/title_activity_style_battle_city"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.style.FunGameHitBlockStyleActivity"
+            android:name=".activity.Award.FunGameHitBlockStyleActivity"
             android:label="@string/title_activity_style_hit_block"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.style.AwardActivity"
+            android:name=".activity.Award.AwardActivity"
             android:label="@string/title_activity_award"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.style.addAwardActivity"
+            android:name=".activity.Award.addAwardActivity"
             android:label="addAward"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.style.DeliveryStyleActivity"
+            android:name=".activity.Award.DeliveryStyleActivity"
             android:label="@string/title_activity_style_drop_box"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.example.BasicExampleActivity"
+            android:name=".activity.Mine.BasicExampleActivity"
             android:label="@string/title_activity_example_basic"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.example.AssignDefaultExampleActivity"
+            android:name=".activity.Mine.AssignDefaultExampleActivity"
             android:label="@string/title_activity_example_assign_default"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.example.AssignXmlExampleActivity"
+            android:name=".activity.Mine.AssignXmlExampleActivity"
             android:label="@string/title_activity_example_assign_xml"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.example.LoginActivity"
+            android:name=".activity.Mine.LoginActivity"
             android:label="@string/title_activity_example_assign_xml"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.example.RegisterActivity"
+            android:name=".activity.Mine.RegisterActivity"
             android:label="@string/title_activity_example_assign_xml"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.example.AssignCodeExampleActivity"
+            android:name=".activity.Mine.AssignCodeExampleActivity"
             android:label="@string/title_activity_example_assign_code"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.practice.RepastPracticeActivity"
+            android:name=".activity.Task.RepastPracticeActivity"
             android:label="@string/title_activity_practice_repast"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.practice.ProfilePracticeActivity"
+            android:name=".activity.Task.ProfilePracticeActivity"
             android:label="@string/title_activity_practice_profile"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.practice.BannerPracticeActivity"
+            android:name=".activity.Task.BannerPracticeActivity"
             android:label="@string/title_activity_practice_banner"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.example.SnapHelperExampleActivity"
+            android:name=".activity.Mine.SnapHelperExampleActivity"
             android:label="@string/title_activity_example_snap_helper"
             android:screenOrientation="portrait" />
         <activity

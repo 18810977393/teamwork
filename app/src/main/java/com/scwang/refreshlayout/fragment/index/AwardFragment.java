@@ -19,12 +19,10 @@ import android.widget.AdapterView;
 import com.scwang.refreshlayout.R;
 
 
-import com.scwang.refreshlayout.activity.style.AwardActivity;
-import com.scwang.refreshlayout.activity.style.ClassicsStyleActivity;
-import com.scwang.refreshlayout.activity.style.DeliveryStyleActivity;
-import com.scwang.refreshlayout.activity.style.FlyRefreshStyleActivity;
-import com.scwang.refreshlayout.activity.style.FunGameBattleCityStyleActivity;
-import com.scwang.refreshlayout.activity.style.FunGameHitBlockStyleActivity;
+import com.scwang.refreshlayout.activity.Award.AwardActivity;
+import com.scwang.refreshlayout.activity.Award.FlyRefreshStyleActivity;
+import com.scwang.refreshlayout.activity.Award.FunGameBattleCityStyleActivity;
+import com.scwang.refreshlayout.activity.Award.FunGameHitBlockStyleActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.util.StatusBarUtil;
@@ -48,14 +46,12 @@ import static com.scwang.refreshlayout.R.id.recyclerView;
  * 风格展示
  * A simple {@link Fragment} subclass.
  */
-public class RefreshStylesFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class AwardFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private enum Item {
-//        Hidden(R.string.title_activity_style_delivery,DeliveryStyleActivity.class),
-        FlyRefresh(R.string.title_activity_style_fly_refresh, FlyRefreshStyleActivity.class),
-        FunGameHitBlock(R.string.title_activity_style_hit_block, FunGameHitBlockStyleActivity.class),
-        FunGameBattleCity(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
-//        Classics(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
+
+        小游戏1(R.string.title_activity_style_hit_block, FunGameHitBlockStyleActivity.class),
+        小游戏2(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
         Award(R.string.title_activity_style_delivery,AwardActivity.class),
         ;
         public int nameId;

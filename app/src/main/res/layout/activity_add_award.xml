@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.scwang.refreshlayout.activity.style.addAwardActivity">
+    tools:context="com.scwang.refreshlayout.activity.Award.addAwardActivity">
 
     <EditText
         android:id="@+id/pays"

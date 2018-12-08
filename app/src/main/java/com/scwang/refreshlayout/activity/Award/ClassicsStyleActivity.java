@@ -1,4 +1,4 @@
-package com.scwang.refreshlayout.activity.style;
+package com.scwang.refreshlayout.activity.Award;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;

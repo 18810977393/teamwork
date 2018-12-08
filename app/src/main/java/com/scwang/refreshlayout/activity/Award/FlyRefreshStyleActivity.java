@@ -1,4 +1,4 @@
-package com.scwang.refreshlayout.activity.style;
+package com.scwang.refreshlayout.activity.Award;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

@@ -1,4 +1,4 @@
-package com.scwang.refreshlayout.activity.example;
+package com.scwang.refreshlayout.activity.Mine;
 
 import android.content.Context;
 import android.os.Bundle;

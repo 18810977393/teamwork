@@ -16,18 +16,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.FragmentActivity;
-
-import com.scwang.refreshlayout.activity.IndexMainActivity;
-import com.scwang.refreshlayout.activity.menu.SrcMenu;
-import com.scwang.refreshlayout.activity.practice.ProfilePracticeActivity;
-import com.scwang.refreshlayout.activity.practice.RepastPracticeActivity;
-
+import com.scwang.refreshlayout.activity.Mine.BasicExampleActivity;
+import com.scwang.refreshlayout.activity.Mine.LoginActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
+import com.scwang.refreshlayout.fragment.example.BottomSheetExampleFragment;
+import com.scwang.refreshlayout.fragment.example.ViewPagerExampleFragment;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
 import java.util.Arrays;
@@ -36,30 +33,29 @@ import static android.R.layout.simple_list_item_2;
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 
 /**
- * 实战演示
+ * 使用示例
  * A simple {@link Fragment} subclass.
  */
-public class RefreshPracticeFragment extends Fragment implements AdapterView.OnItemClickListener {
-
-    private SrcMenu mSrcMenu;
+public class MineFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private enum Item {
-        Repast(R.string.index_practice_repast, RepastPracticeActivity.class),
-        Profile(R.string.index_practice_profile, ProfilePracticeActivity.class),
+        Basic(R.string.index_example_basic, BasicExampleActivity.class),
+        ViewPager(R.string.index_example_pager, ViewPagerExampleFragment.class),
+        BottomSheet(R.string.index_example_bottom_sheet,BottomSheetExampleFragment.class),
+        LogIn(R.string.index_example_bottom_sheet, LoginActivity.class),
         ;
-        @StringRes
-        public int name;
+        public int nameId;
         public Class<?> clazz;
-        Item(@StringRes int name, Class<?> clazz) {
-            this.name = name;
+
+        Item(@StringRes int nameId, Class<?> clazz) {
+            this.nameId = nameId;
             this.clazz = clazz;
         }
-
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_refresh_practive, container, false);
+        return inflater.inflate(R.layout.fragment_refresh_example, container, false);
     }
 
     @Override
@@ -77,33 +73,11 @@ public class RefreshPracticeFragment extends Fragment implements AdapterView.OnI
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, Item model, int position) {
                     holder.text(android.R.id.text1, model.name());
-                    holder.text(android.R.id.text2, model.name);
+                    holder.text(android.R.id.text2, getString(model.nameId));
                     holder.textColorId(android.R.id.text2, R.color.colorTextAssistant);
                 }
             });
         }
-
-        //
-        mSrcMenu = (SrcMenu) root.findViewById(R.id.src_menu);
-        mSrcMenu.setOnMenuItemClickListener(new SrcMenu.OnMenuItemClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                switch (position){
-                    case 1:
-                        //
-                        break;
-                    case 2:
-                       //
-                        break;
-                    case 3:
-                        //
-                        break;
-                    case 4:
-                       //
-                        break;
-                }
-            }
-        });
     }
 
     @Override

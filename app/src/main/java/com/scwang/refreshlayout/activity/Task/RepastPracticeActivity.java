@@ -1,4 +1,4 @@
-package com.scwang.refreshlayout.activity.practice;
+package com.scwang.refreshlayout.activity.Task;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,9 +21,6 @@ import com.scwang.smartrefresh.layout.util.DensityUtil;
 import java.util.Arrays;
 import java.util.Collection;
 
-/**
- * 餐饮美食
- */
 public class RepastPracticeActivity extends AppCompatActivity {
 
     private class Model {

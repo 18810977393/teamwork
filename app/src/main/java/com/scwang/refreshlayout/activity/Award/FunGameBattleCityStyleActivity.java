@@ -1,4 +1,4 @@
-package com.scwang.refreshlayout.activity.style;
+package com.scwang.refreshlayout.activity.Award;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -25,7 +25,7 @@ import java.util.List;
 import static android.R.layout.simple_list_item_2;
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 
-public class FunGameHitBlockStyleActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class FunGameBattleCityStyleActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private enum Item {
         默认主题(R.string.item_style_theme_default_abstract),
@@ -47,7 +47,7 @@ public class FunGameHitBlockStyleActivity extends AppCompatActivity implements A
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_style_fungame_hitblock);
+        setContentView(R.layout.activity_style_fungame_battlecity);
 
         mToolbar = findViewById(R.id.toolbar);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -82,7 +82,6 @@ public class FunGameHitBlockStyleActivity extends AppCompatActivity implements A
                 }
             });
         }
-
     }
 
     @Override

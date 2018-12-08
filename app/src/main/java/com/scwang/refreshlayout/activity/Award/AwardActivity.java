@@ -1,18 +1,16 @@
-package com.scwang.refreshlayout.activity.style;
+package com.scwang.refreshlayout.activity.Award;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.avos.avoscloud.AVException;
@@ -20,9 +18,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.FindCallback;
-import com.avos.avoscloud.GetCallback;
 import com.scwang.refreshlayout.R;
-import com.scwang.refreshlayout.Sorting;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 import java.io.BufferedReader;
@@ -31,7 +27,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class AwardActivity extends AppCompatActivity {
     private String selectedItem;

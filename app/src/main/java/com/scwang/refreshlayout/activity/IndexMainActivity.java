@@ -10,15 +10,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 
 import com.scwang.refreshlayout.R;
-import com.scwang.refreshlayout.activity.menu.SrcMenu;
-import com.scwang.refreshlayout.fragment.index.RefreshExampleFragment;
-import com.scwang.refreshlayout.fragment.index.RefreshPracticeFragment;
-import com.scwang.refreshlayout.fragment.index.RefreshStylesFragment;
+import com.scwang.refreshlayout.fragment.index.MineFragment;
+import com.scwang.refreshlayout.fragment.index.TaskFragment;
+import com.scwang.refreshlayout.fragment.index.AwardFragment;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
 public class IndexMainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
@@ -26,9 +23,9 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
 //    private SrcMenu mSrcMenu;
 
     private enum TabFragment {
-        任务(R.id.navigation_practice, RefreshPracticeFragment.class),
-        奖励(R.id.navigation_style, RefreshStylesFragment.class),
-        我的(R.id.navigation_example, RefreshExampleFragment.class),
+        任务(R.id.navigation_practice, TaskFragment.class),
+        奖励(R.id.navigation_style, AwardFragment.class),
+        我的(R.id.navigation_example, MineFragment.class),
         ;
 
         private Fragment fragment;

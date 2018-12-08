@@ -19,12 +19,13 @@ import android.widget.AdapterView;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.FragmentActivity;
-import com.scwang.refreshlayout.activity.example.BasicExampleActivity;
-import com.scwang.refreshlayout.activity.example.LoginActivity;
+
+import com.scwang.refreshlayout.activity.MenuButton.SrcMenu;
+import com.scwang.refreshlayout.activity.Task.ProfilePracticeActivity;
+import com.scwang.refreshlayout.activity.Task.RepastPracticeActivity;
+
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
-import com.scwang.refreshlayout.fragment.example.BottomSheetExampleFragment;
-import com.scwang.refreshlayout.fragment.example.ViewPagerExampleFragment;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
 import java.util.Arrays;
@@ -33,29 +34,30 @@ import static android.R.layout.simple_list_item_2;
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 
 /**
- * 使用示例
+ * 实战演示
  * A simple {@link Fragment} subclass.
  */
-public class RefreshExampleFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class TaskFragment extends Fragment implements AdapterView.OnItemClickListener {
+
+    private SrcMenu mSrcMenu;
 
     private enum Item {
-        Basic(R.string.index_example_basic, BasicExampleActivity.class),
-        ViewPager(R.string.index_example_pager, ViewPagerExampleFragment.class),
-        BottomSheet(R.string.index_example_bottom_sheet,BottomSheetExampleFragment.class),
-        LogIn(R.string.index_example_bottom_sheet, LoginActivity.class),
+        Repast(R.string.index_practice_repast, RepastPracticeActivity.class),
+        Profile(R.string.index_practice_profile, ProfilePracticeActivity.class),
         ;
-        public int nameId;
+        @StringRes
+        public int name;
         public Class<?> clazz;
-
-        Item(@StringRes int nameId, Class<?> clazz) {
-            this.nameId = nameId;
+        Item(@StringRes int name, Class<?> clazz) {
+            this.name = name;
             this.clazz = clazz;
         }
+
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_refresh_example, container, false);
+        return inflater.inflate(R.layout.fragment_refresh_practive, container, false);
     }
 
     @Override
@@ -73,11 +75,33 @@ public class RefreshExampleFragment extends Fragment implements AdapterView.OnIt
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, Item model, int position) {
                     holder.text(android.R.id.text1, model.name());
-                    holder.text(android.R.id.text2, getString(model.nameId));
+                    holder.text(android.R.id.text2, model.name);
                     holder.textColorId(android.R.id.text2, R.color.colorTextAssistant);
                 }
             });
         }
+
+        //
+        mSrcMenu = (SrcMenu) root.findViewById(R.id.src_menu);
+        mSrcMenu.setOnMenuItemClickListener(new SrcMenu.OnMenuItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                switch (position){
+                    case 1:
+                        //
+                        break;
+                    case 2:
+                       //
+                        break;
+                    case 3:
+                        //
+                        break;
+                    case 4:
+                       //
+                        break;
+                }
+            }
+        });
     }
 
     @Override

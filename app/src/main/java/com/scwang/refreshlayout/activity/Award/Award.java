@@ -1,4 +1,4 @@
-package com.scwang.refreshlayout.activity.style;
+package com.scwang.refreshlayout.activity.Award;
 import com.avos.avoscloud.AVObject;
 
 public class Award extends AVObject implements Comparable<Award>

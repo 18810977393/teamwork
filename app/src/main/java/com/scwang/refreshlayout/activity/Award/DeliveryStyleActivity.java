@@ -1,4 +1,4 @@
-package com.scwang.refreshlayout.activity.style;
+package com.scwang.refreshlayout.activity.Award;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -6,11 +6,11 @@ import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 
 import com.scwang.refreshlayout.R;
@@ -22,10 +22,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static android.R.layout.simple_list_item_2;
-import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
+import static com.scwang.refreshlayout.R.layout.listitem_style_delivery;
 
-public class FunGameBattleCityStyleActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class DeliveryStyleActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private enum Item {
         默认主题(R.string.item_style_theme_default_abstract),
@@ -47,7 +46,16 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_style_fungame_battlecity);
+        setContentView(R.layout.activity_style_delivery);
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setStatusBarColor(0xfff0f0f0);
+        }
+        if (Build.VERSION.SDK_INT >= 23) {
+            Window window = getWindow();
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility();
+            systemUiVisibility |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            window.getDecorView().setSystemUiVisibility(systemUiVisibility);
+        }
 
         mToolbar = findViewById(R.id.toolbar);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -67,18 +75,13 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
         if (view instanceof RecyclerView) {
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            recyclerView.addItemDecoration(new DividerItemDecoration(this, VERTICAL));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             List<Item> items = new ArrayList<>();
             items.addAll(Arrays.asList(Item.values()));
             items.addAll(Arrays.asList(Item.values()));
-            items.addAll(Arrays.asList(Item.values()));
-            recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(items, simple_list_item_2,this) {
+            recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(items, listitem_style_delivery,this) {
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, Item model, int position) {
-                    holder.text(android.R.id.text1, model.name());
-                    holder.text(android.R.id.text2, model.nameId);
-                    holder.textColorId(android.R.id.text2, R.color.colorTextAssistant);
                 }
             });
         }
@@ -88,7 +91,19 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (Item.values()[position]) {
             case 默认主题:
-                mRefreshLayout.setPrimaryColorsId(android.R.color.white, android.R.color.black);
+                mToolbar.setBackgroundResource(android.R.color.white);
+                mToolbar.setTitleTextColor(0xffbbbbbb);
+                mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_gray_24dp);
+                mRefreshLayout.setPrimaryColors(0xfff0f0f0, 0xffffffff);
+                if (Build.VERSION.SDK_INT >= 21) {
+                    getWindow().setStatusBarColor(0xfff0f0f0);
+                }
+                if (Build.VERSION.SDK_INT >= 23) {
+                    Window window = getWindow();
+                    int systemUiVisibility = window.getDecorView().getSystemUiVisibility();
+                    systemUiVisibility |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                    window.getDecorView().setSystemUiVisibility(systemUiVisibility);
+                }
                 break;
             case 蓝色主题:
                 setThemeColor(R.color.colorPrimary, R.color.colorPrimaryDark);
@@ -108,11 +123,17 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
 
     private void setThemeColor(int colorPrimary, int colorPrimaryDark) {
         mToolbar.setBackgroundResource(colorPrimary);
+        mToolbar.setTitleTextColor(ContextCompat.getColor(this, android.R.color.white));
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         mRefreshLayout.setPrimaryColorsId(colorPrimary, android.R.color.white);
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, colorPrimaryDark));
         }
+        if (Build.VERSION.SDK_INT >= 23) {
+            Window window = getWindow();
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility();
+            systemUiVisibility &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            window.getDecorView().setSystemUiVisibility(systemUiVisibility);
+        }
     }
-
-
 }
