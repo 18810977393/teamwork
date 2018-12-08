@@ -89,22 +89,18 @@ public class RefreshPracticeFragment extends Fragment implements AdapterView.OnI
             @Override
             public void onClick(View view, int position) {
                 switch (position){
-//                    case 1:
-//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
-//                                .show();
-//                        break;
-//                    case 2:
-//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
-//                                .show();
-//                        break;
-//                    case 3:
-//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
-//                                .show();
-//                        break;
-//                    case 4:
-//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
-//                                .show();
-//                        break;
+                    case 1:
+                        //
+                        break;
+                    case 2:
+                       //
+                        break;
+                    case 3:
+                        //
+                        break;
+                    case 4:
+                       //
+                        break;
                 }
             }
         });
