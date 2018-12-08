@@ -13,7 +13,6 @@ import com.scwang.smartrefresh.layout.api.DefaultRefreshInitializer;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.squareup.leakcanary.LeakCanary;
 
 /**
  *
@@ -53,11 +52,5 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         AVOSCloud.initialize(this,"SMjS1MdYMmqLwxlGG4nfQ2Ov-gzGzoHsz","x0uMwYgrXmiwp8Q6N1MrX6rs");
-//        if (LeakCanary.isInAnalyzerProcess(this)) {
-//            // This process is dedicated to LeakCanary for heap analysis.
-//            // You should not init your app in this process.
-//            return;
-//        }
-// LeakCanary.install(this);
     }
 }

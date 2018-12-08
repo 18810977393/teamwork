@@ -1,16 +1,18 @@
 package com.scwang.refreshlayout.activity.style;
+import com.avos.avoscloud.AVObject;
 
-import android.support.annotation.NonNull;
-
-public class Award implements Comparable<Award>
+public class Award extends AVObject implements Comparable<Award>
 {
-    private String name;
+    private String name, time;
     private int score,times;
-    public Award(String name, int score, int times)
+    private int type;
+    public Award(String name, int score, int times,String time, int type)
     {
         this.name =name;
         this.score = score;
         this.times = times;
+        this.time = time;
+        this.type = type;
     }
 
     public String getName() {

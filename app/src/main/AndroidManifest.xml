@@ -30,9 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ViewPager.ViewPagerActivity">
-        </activity>
+        <activity android:name=".ViewPager.ViewPagerActivity"></activity>
         <activity
             android:name=".activity.FragmentActivity"
             android:screenOrientation="portrait" />
@@ -77,6 +75,14 @@
             android:label="@string/title_activity_example_assign_xml"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.example.LoginActivity"
+            android:label="@string/title_activity_example_assign_xml"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.example.RegisterActivity"
+            android:label="@string/title_activity_example_assign_xml"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.example.AssignCodeExampleActivity"
             android:label="@string/title_activity_example_assign_code"
             android:screenOrientation="portrait" />
@@ -98,8 +104,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.IndexMainActivity"
-            android:label="@string/title_activity_index_main">
-        </activity>
+            android:label="@string/title_activity_index_main"></activity>
     </application>
 
 </manifest>
