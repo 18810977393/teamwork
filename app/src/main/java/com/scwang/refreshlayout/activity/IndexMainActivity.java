@@ -10,15 +10,20 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 import com.scwang.refreshlayout.R;
+import com.scwang.refreshlayout.activity.menu.SrcMenu;
 import com.scwang.refreshlayout.fragment.index.RefreshExampleFragment;
 import com.scwang.refreshlayout.fragment.index.RefreshPracticeFragment;
 import com.scwang.refreshlayout.fragment.index.RefreshStylesFragment;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
 public class IndexMainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
+
+//    private SrcMenu mSrcMenu;
 
     private enum TabFragment {
         practice(R.id.navigation_practice, RefreshPracticeFragment.class),
@@ -92,6 +97,32 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
 
         //状态栏透明和间距处理
         StatusBarUtil.immersive(this, 0xff000000, 0.1f);
+
+//        //
+//        mSrcMenu = (SrcMenu) findViewById(R.id.src_menu);
+//        mSrcMenu.setOnMenuItemClickListener(new SrcMenu.OnMenuItemClickListener() {
+//            @Override
+//            public void onClick(View view, int position) {
+//                switch (position){
+//                    case 1:
+//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
+//                                .show();
+//                        break;
+//                    case 2:
+//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
+//                                .show();
+//                        break;
+//                    case 3:
+//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
+//                                .show();
+//                        break;
+//                    case 4:
+//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
+//                                .show();
+//                        break;
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -105,5 +136,7 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
         ((ViewPager)findViewById(R.id.content)).setCurrentItem(TabFragment.from(item.getItemId()).ordinal());
         return true;
     }
+
+
 
 }

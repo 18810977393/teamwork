@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">智能刷新</string>
+    <string name="app_name">Do Now</string>
 
-    <string name="title_style">样式</string>
-    <string name="title_example">使用</string>
-    <string name="title_practice">实战</string>
+    <string name="title_style">每日任务</string>
+    <string name="title_example">奖励</string>
+    <string name="title_practice">我的</string>
 
     <string name="region_hint">未选择</string>
     <string name="region_name">已选地区</string>

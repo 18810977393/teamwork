@@ -16,10 +16,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.FragmentActivity;
 
+import com.scwang.refreshlayout.activity.IndexMainActivity;
+import com.scwang.refreshlayout.activity.menu.SrcMenu;
 import com.scwang.refreshlayout.activity.practice.ProfilePracticeActivity;
 import com.scwang.refreshlayout.activity.practice.RepastPracticeActivity;
 
@@ -37,6 +40,8 @@ import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
  * A simple {@link Fragment} subclass.
  */
 public class RefreshPracticeFragment extends Fragment implements AdapterView.OnItemClickListener {
+
+    private SrcMenu mSrcMenu;
 
     private enum Item {
         Repast(R.string.index_practice_repast, RepastPracticeActivity.class),
@@ -77,6 +82,32 @@ public class RefreshPracticeFragment extends Fragment implements AdapterView.OnI
                 }
             });
         }
+
+        //
+        mSrcMenu = (SrcMenu) root.findViewById(R.id.src_menu);
+        mSrcMenu.setOnMenuItemClickListener(new SrcMenu.OnMenuItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                switch (position){
+//                    case 1:
+//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
+//                                .show();
+//                        break;
+//                    case 2:
+//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
+//                                .show();
+//                        break;
+//                    case 3:
+//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
+//                                .show();
+//                        break;
+//                    case 4:
+//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
+//                                .show();
+//                        break;
+                }
+            }
+        });
     }
 
     @Override

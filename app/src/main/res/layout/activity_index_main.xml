@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:srcmenu="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -8,16 +9,69 @@
     android:orientation="vertical"
     tools:context="com.scwang.refreshlayout.activity.IndexMainActivity">
 
-    <android.support.v7.widget.Toolbar style="@style/AppTheme.Toolbar"
-        app:title="@string/title_activity_index_main"
+    <android.support.v7.widget.Toolbar
+        style="@style/AppTheme.Toolbar"
+        android:layout_alignParentTop="true"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        app:title="@string/title_activity_index_main"
+        tools:visibility="visible" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+      android:layout_weight="6">
+    </android.support.v4.view.ViewPager>
+
+    <!--<com.scwang.refreshlayout.activity.menu.SrcMenu-->
+        <!--android:id="@+id/src_menu"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="2"-->
+        <!--srcmenu:position="left_bottom"-->
+        <!--srcmenu:radius="80dp">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:background="@mipmap/composer_button">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/btn_plus"-->
+                <!--android:layout_width="370dp"-->
+                <!--android:layout_height="37dp"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:src="@mipmap/composer_icn_plus" />-->
+        <!--</RelativeLayout>-->
+
+
+        <!--<ImageView-->
+            <!--android:layout_width="37dp"-->
+            <!--android:layout_height="37dp"-->
+            <!--android:src="@mipmap/composer_camera"-->
+            <!--android:tag="Camera" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="37dp"-->
+            <!--android:layout_height="37dp"-->
+            <!--android:src="@mipmap/composer_music"-->
+            <!--android:tag="Music" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="37dp"-->
+            <!--android:layout_height="37dp"-->
+            <!--android:src="@mipmap/composer_place"-->
+            <!--android:tag="Place" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="37dp"-->
+            <!--android:layout_height="37dp"-->
+            <!--android:src="@mipmap/composer_sleep"-->
+            <!--android:tag="Sleep" />-->
+
+
+    <!--</com.scwang.refreshlayout.activity.menu.SrcMenu>-->
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
