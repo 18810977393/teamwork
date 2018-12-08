@@ -4,12 +4,17 @@ import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.SaveCallback;
 import com.scwang.refreshlayout.R;
 
 import java.io.File;
@@ -19,6 +24,7 @@ public class addAwardActivity extends AppCompatActivity {
     private Spinner  sp;
     private String str;
     private Toolbar mToolbar;
+    private final int type = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,18 +70,29 @@ public class addAwardActivity extends AppCompatActivity {
                 .getText().toString();
         String scores = ((EditText) findViewById(R.id.pays))
                 .getText().toString();
-        int times ;
+        String times ;
        if (str.equals("无限"))
        {
-           times = Integer.MAX_VALUE;
+           times = "∞";
        }
        else
            {
-               times = 1;
+               times = String.valueOf(1);
            }
 
+
         File parent = getFilesDir();
-        File file = new File(parent, fileName);
+
+        String path= parent.getAbsolutePath();
+        String name="Award";//你要新建的文件夹名或者文件名
+        String pathx=path+name;
+        File file=new File(pathx);
+        boolean is=file.exists();//判断文件（夹）是否存在
+        if(!is) {
+            file.mkdir();//创建文件夹
+        }
+        File file0 = new File(file,fileName);
+
         PrintWriter writer = null;
         if (scores.equals("")||scores.equals(null))
             showAlertDialog("添加失败", "请输入耗费成就点数");
@@ -87,8 +104,24 @@ public class addAwardActivity extends AppCompatActivity {
                 }
                 else
                     try {
-                        writer = new PrintWriter(file);
-                        writer.write(scores+" "+times);
+                        writer = new PrintWriter(file0);
+                        writer.write(fileName + "|"+ scores + "|" + times);
+
+                        //Award award = new Award(fileName,scores,times,0,type)
+                        AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
+                        testObject.put("Title",fileName);
+                        testObject.put("Type",type);
+                        testObject.put("Scores",scores);
+                        testObject.put("Totaltime",times);
+                        testObject.put("times",0);
+                        testObject.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if(e == null){
+                                    Log.d("saved","success!");
+                                }
+                            }
+                        });
                         finish();
                 }
                 catch (Exception e) {
