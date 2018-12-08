@@ -25,7 +25,7 @@
         android:layout_height="61dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="65dp"
         android:hint="标题" />
 
 
@@ -69,5 +69,13 @@
         android:text="添加"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="29dp" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppTheme.Toolbar"
+        android:background="@color/colorPrimaryOverlay"
+        app:navigationIcon="@drawable/ic_arrow_back_gray_24dp"
+        app:title="添加奖励"
+        app:titleTextColor="#fbbb" />
 
 </RelativeLayout>

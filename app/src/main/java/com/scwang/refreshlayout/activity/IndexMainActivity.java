@@ -26,9 +26,9 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
 //    private SrcMenu mSrcMenu;
 
     private enum TabFragment {
-        practice(R.id.navigation_practice, RefreshPracticeFragment.class),
-        styles(R.id.navigation_style, RefreshStylesFragment.class),
-        using(R.id.navigation_example, RefreshExampleFragment.class),
+        任务(R.id.navigation_practice, RefreshPracticeFragment.class),
+        奖励(R.id.navigation_style, RefreshStylesFragment.class),
+        我的(R.id.navigation_example, RefreshExampleFragment.class),
         ;
 
         private Fragment fragment;
@@ -59,7 +59,7 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
                     return fragment;
                 }
             }
-            return styles;
+            return 奖励;
         }
 
         public static void onDestroy() {

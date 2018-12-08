@@ -3,6 +3,7 @@ package com.scwang.refreshlayout.activity.style;
 import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,7 @@ import java.io.PrintWriter;
 public class addAwardActivity extends AppCompatActivity {
     private Spinner  sp;
     private String str;
+    private Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,13 @@ public class addAwardActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        mToolbar = findViewById(R.id.toolbar);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void cancel(View view) {
@@ -65,12 +74,10 @@ public class addAwardActivity extends AppCompatActivity {
                times = 1;
            }
 
-
-
         File parent = getFilesDir();
         File file = new File(parent, fileName);
         PrintWriter writer = null;
-        if (scores==""||scores==null)
+        if (scores.equals("")||scores.equals(null))
             showAlertDialog("添加失败", "请输入耗费成就点数");
         else
             {
@@ -80,10 +87,9 @@ public class addAwardActivity extends AppCompatActivity {
                 }
                 else
                     try {
-                    writer = new PrintWriter(file);
-                    Award award = new Award(fileName,Integer.parseInt(scores),times);
-                    writer.write(award.toString());
-                    finish();
+                        writer = new PrintWriter(file);
+                        writer.write(scores+" "+times);
+                        finish();
                 }
                 catch (Exception e) {
                     showAlertDialog("添加失败", "请输入奖励名称");

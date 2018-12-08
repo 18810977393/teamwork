@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.Sorting;
@@ -27,17 +26,23 @@ import java.util.StringTokenizer;
 
 public class AwardActivity extends AppCompatActivity {
     private String selectedItem;
-    private Toolbar mToolbar;
+
     private RefreshLayout mRefreshLayout;
     private static boolean isFirstEnter = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_award);
-        Button button1 = (Button)findViewById(R.id.button1);
+        Button button1 = (Button)findViewById(R.id.button);
+        Button button2 = (Button)findViewById(R.id.button2);
 
-
-        button1.setOnClickListener(new View.OnClickListener()
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -76,13 +81,6 @@ public class AwardActivity extends AppCompatActivity {
                            dialog.show();
                     }
                 });
-        mToolbar = findViewById(R.id.toolbar);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         mRefreshLayout = findViewById(R.id.refreshLayout);
         if (isFirstEnter) {
@@ -130,12 +128,12 @@ public class AwardActivity extends AppCompatActivity {
                 fileReader = new FileReader(file);
                 bufferedReader = new BufferedReader(fileReader);
                 StringBuilder sb = new StringBuilder();
-                String line = bufferedReader.readLine();
+                String line = bufferedReader.readLine()+" ";
                 while (line != null) {
                     sb.append(line);
                     line = bufferedReader.readLine();
                 }
-               titles[i] = sb.toString();//将待显示的文字改为Award中的标题+成就点数+次数
+               titles[i] +=" "+sb.toString();//将待显示的文字改为Award中的标题+成就点数+次数
 
             } catch (IOException e) {
                 }
@@ -162,12 +160,11 @@ public class AwardActivity extends AppCompatActivity {
         Sorting.shellSort(awards);
         for (int i=0;i<awards.length;i++)
         {
-            titles[i] = awards[i].getName()+"             "+"-"+awards[i].getScore()+"/次（"+awards[i].getTimes()+"次)";
+            titles[i] = awards[i].toString();//awards[i].getName()+"             "+"-"+awards[i].getScore()+"/次（"+awards[i].getTimes()+"次)";
         }
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, titles);
         listView.setAdapter(arrayAdapter);
-
     }
 
     private void deleteNote() {
@@ -180,9 +177,16 @@ public class AwardActivity extends AppCompatActivity {
 
     private Award transferAward(String x)
     {
+
         StringTokenizer stringTokenizer = new StringTokenizer(x);
-        Award award = new Award(stringTokenizer.nextToken(),Integer.parseInt(stringTokenizer.nextToken()),Integer.parseInt(stringTokenizer.nextToken()));
-        return  award;
+        if (stringTokenizer.countTokens()==3)
+        {
+            Award award = new Award(stringTokenizer.nextToken(),Integer.parseInt(stringTokenizer.nextToken()),Integer.parseInt(stringTokenizer.nextToken()));
+            return  award;
+        }
+        else
+            return null;
+
     }
 }
 
