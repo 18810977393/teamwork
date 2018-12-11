@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,13 +17,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVCloudQueryResult;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.CloudQueryCallback;
-import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.FindCallback;
 import com.scwang.refreshlayout.R;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -36,16 +37,16 @@ import java.util.List;
 
 public class AwardActivity extends AppCompatActivity {
     private String selectedItem;
-
     private RefreshLayout mRefreshLayout;
+
     private static boolean isFirstEnter = true;
-    private ArrayList<AVObject> mList = new ArrayList();
+    private List<AVObject> mList = new ArrayList();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_award);
-        Button button1 = (Button)findViewById(R.id.button);
-        Button button2 = (Button)findViewById(R.id.button2);
+        Button button1 = (Button) findViewById(R.id.button);
+        Button button2 = (Button) findViewById(R.id.button2);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,86 +54,33 @@ public class AwardActivity extends AppCompatActivity {
                 finish();
             }
         });
-        button2.setOnClickListener(new View.OnClickListener()
-        {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 startActivity(new Intent(AwardActivity.this, addAwardActivity.class));
             }
         });
         ListView listView = (ListView) findViewById(
                 R.id.listView1);
         String[] titles;
-        File parentFile = new File("/data/data/com.scwang.refreshlayout.app/filesAward");
-        if (parentFile.exists()){
-            File[] files = parentFile.listFiles();
-            Award[] awards = new Award[files.length];
-            titles = new String[files.length];
-            for (int i=0;i<files.length;i++)
-            {
-                File file = files[i];
-                FileReader fileReader = null;
-                BufferedReader bufferedReader = null;
-                try {
-                    fileReader = new FileReader(file);
-                    bufferedReader = new BufferedReader(fileReader);
-                    StringBuilder sb = new StringBuilder();
-                    String line = bufferedReader.readLine();
-                    while (line != null) {
-                        sb.append(line+" ");
-                        line = bufferedReader.readLine();
-                    }
-                    titles[i] =sb.toString();//将待显示的文字改为Award中的标题+成就点数+次数
+        initData();
 
-                } catch (IOException e) {
-                }
-                finally {
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e) {
-                        }
-                    }
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (IOException e) {
-                        }
-                    }
-                }
-            }
-            // 对其排序
-//        for (int j=0;j<titles.length;j++)
-//        {
-//            awards[j] = transferAward(titles[j]);
-//        }
-//        Sorting.shellSort(awards);
-//        for (int i=0;i<awards.length;i++)
-//        {
-//            titles[i] = awards[i].toString();//awards[i].getName()+"             "+"-"+awards[i].getScore()+"/次（"+awards[i].getTimes()+"次)";
-//        }
-        }
-        else
+//        avQuery.orderByDescending("createdAt");
+//        avQuery.findInBackground(new FindCallback<AVObject>() {
+//            @Override
+//            public void done(List<AVObject> list, AVException e)
+//            {
+//                if (e == null) {
+//                    mList.addAll(list);
+//                } else {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+        titles = new String[mList.size()];
+        for (int i=0;i<mList.size();i++)
         {
-            AVQuery<AVObject> avQuery = new AVQuery<>(AVUser.getCurrentUser().getUsername());
-            avQuery.orderByDescending("createdAt");
-            avQuery.findInBackground(new FindCallback<AVObject>() {
-                @Override
-                public void done(List<AVObject> list, AVException e)
-                {
-                    if (e == null) {
-                        mList.addAll(list);
-                    } else {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            titles = new String[mList.size()];
-            for (int i=0;i<mList.size();i++)
-            {
-                titles[i] = mList.get(i).getString("Title")+"  成就点数： "+mList.get(i).getString("Scores")+" 次数 "+mList.get(i).getString("Totaltime");
-            }
+            titles[i] = mList.get(i).getString("Title")+"  成就点数： "+mList.get(i).getString("Scores")+" 次数 "+mList.get(i).getString("Totaltime");
         }
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1,titles);
@@ -144,7 +92,8 @@ public class AwardActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView,
                                             View view, final int position, long id) {
                         final int index = position;
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(AwardActivity.this);
+                        AlertDialog.Builder dialog = new AlertDialog.Builder
+                                (AwardActivity.this);
                         dialog.setTitle("满足奖励");
                         dialog.setMessage("花费成就点数来满足奖励");
                         dialog.setCancelable(false);
@@ -179,6 +128,22 @@ public class AwardActivity extends AppCompatActivity {
             mRefreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果
         }
     }
+    private void initData() {
+        mList.clear();
+        AVQuery<AVObject> avQuery = new AVQuery<>(AVUser.getCurrentUser().getUsername());
+        avQuery.orderByDescending("createdAt");
+        avQuery.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> list, AVException e) {
+                if (e == null) {
+                    mList.addAll(list);
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.award_menu, menu);
@@ -201,7 +166,7 @@ public class AwardActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         refreshList();
-
+        AVAnalytics.onResume(this);
     }
 
     private void refreshList() {
@@ -317,6 +282,7 @@ public class AwardActivity extends AppCompatActivity {
                             }
                         }
                     }, objectId);
+                    break;
                 }
             }
 

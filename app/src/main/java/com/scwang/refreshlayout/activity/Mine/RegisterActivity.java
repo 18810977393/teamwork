@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +21,9 @@ import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.SaveCallback;
 import com.avos.avoscloud.SignUpCallback;
 import com.scwang.refreshlayout.R;
 
@@ -67,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
     mUsernameView.setError(null);
     mPasswordView.setError(null);
 
-    String username = mUsernameView.getText().toString();
+    final String username = mUsernameView.getText().toString();
     String password = mPasswordView.getText().toString();
 
     boolean cancel = false;
@@ -97,8 +100,17 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         public void done(AVException e) {
           if (e == null) {
-            // 注册成功，把用户对象赋值给当前用户 AVUser.getCurrentUser()
-            //startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+            AVObject avObject = new AVObject("Data_table");
+            avObject.put("Name",username);
+            avObject.put("Scores",0);
+            avObject.saveInBackground(new SaveCallback() {
+              @Override
+              public void done(AVException e) {
+                if(e == null){
+                  Log.d("saved","success!");
+                }
+              }
+            });
             RegisterActivity.this.finish();
           } else {
             // 失败的原因可能有多种，常见的是用户名已经存在。
