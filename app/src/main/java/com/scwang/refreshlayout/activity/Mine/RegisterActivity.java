@@ -9,17 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVUser;
@@ -28,19 +25,18 @@ import com.avos.avoscloud.SignUpCallback;
 import com.scwang.refreshlayout.R;
 
 public class RegisterActivity extends AppCompatActivity {
-  private AutoCompleteTextView mUsernameView;
+  private EditText mUsernameView;
   private EditText mPasswordView;
-  private View mProgressView;
   private View mRegisterFormView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_register);
+    setContentView(R.layout.activity_register2);
 
     //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     // Set up the register form.
-    mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
+    mUsernameView = (EditText) findViewById(R.id.username);
 
     mPasswordView = (EditText) findViewById(R.id.password);
     mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -63,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
     });
 
     mRegisterFormView = findViewById(R.id.register_form);
-    mProgressView = findViewById(R.id.register_progress);
+
   }
 
   private void attemptRegister() {
@@ -149,40 +145,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
       });
 
-      mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-      mProgressView.animate().setDuration(shortAnimTime).alpha(
-              show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-        @Override
-        public void onAnimationEnd(Animator animation) {
-          mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-        }
-      });
-    } else {
-      // The ViewPropertyAnimator APIs are not available, so simply show
-      // and hide the relevant UI components.
-      mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-      mRegisterFormView.setVisibility(show ? View.GONE : View.VISIBLE);
     }
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    if (item.getItemId() == android.R.id.home) {
-      onBackPressed();
-    }
-    return super.onOptionsItemSelected(item);
-  }
-
-  @Override
-  protected void onPause() {
-    super.onPause();
-    AVAnalytics.onPause(this);
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
-    AVAnalytics.onResume(this);
   }
 }
 
