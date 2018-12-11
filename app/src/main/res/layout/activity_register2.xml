@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/register_form"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.scwang.refreshlayout.activity.Mine.RegisterActivity">
+
+
+    <ImageView
+
+        android:id="@+id/iv_background"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+
+        android:scaleType="fitXY"
+
+        android:src="@mipmap/login_background" />
+
+
+    <LinearLayout
+
+        android:id="@+id/email_login_form"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="233dp"
+        android:layout_gravity="bottom"
+
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+
+            android:layout_height="40dp">
+
+
+            <ImageView
+
+                android:id="@+id/iv_user"
+
+                android:layout_width="31dp"
+
+                android:layout_height="32dp"
+
+                android:layout_alignParentTop="true"
+
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:src="@mipmap/login_user" />
+
+
+            <EditText
+
+                android:id="@+id/username"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+
+                android:layout_marginLeft="20dp"
+                android:layout_toLeftOf="@+id/iv_expansion"
+                android:layout_toRightOf="@id/iv_user"
+
+                android:background="@null"
+
+                android:cursorVisible="false"
+
+                android:hint="请输入你的用户名"
+
+                android:lines="1"
+
+                android:singleLine="true"
+
+                android:textColor="#000"
+
+                android:textColorHint="#717070"
+                android:textSize="15dp" />
+
+
+            <ImageView
+
+                android:id="@+id/iv_expansion"
+
+                android:layout_width="60dp"
+
+                android:layout_height="40dp"
+
+                android:layout_alignParentRight="true"
+
+                android:scaleType="centerInside" />
+
+        </RelativeLayout>
+
+
+        <View
+
+            android:id="@+id/viewDivider"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="1dp"
+
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginRight="10dp"
+
+            android:background="#c1bcbc" />
+
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+
+            android:layout_height="40dp"
+
+            android:layout_marginTop="10dp">
+
+
+            <ImageView
+
+                android:id="@+id/iv_paw"
+
+                android:layout_width="31dp"
+
+                android:layout_height="30dp"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="6dp"
+                android:src="@mipmap/login_password" />
+
+
+            <EditText
+
+                android:id="@+id/password"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+
+                android:layout_marginLeft="20dp"
+
+                android:layout_toLeftOf="@+id/switch_paw"
+
+                android:layout_toRightOf="@id/iv_paw"
+
+                android:background="@null"
+                android:cursorVisible="false"
+                android:hint="请输入5位以上密码"
+                android:lines="1"
+
+                android:password="true"
+
+                android:singleLine="true"
+
+                android:textColor="#000"
+
+                android:textColorHint="#717070"
+                android:textSize="15dp" />
+
+
+            <ImageView
+
+                android:id="@+id/switch_paw"
+
+                android:layout_width="60dp"
+
+                android:layout_height="40dp"
+
+                android:layout_alignParentRight="true"
+
+                android:src="@mipmap/pwd_off" />
+
+        </RelativeLayout>
+
+
+        <View
+
+            android:layout_width="match_parent"
+
+            android:layout_height="1dp"
+
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginRight="10dp"
+
+            android:background="#c1bcbc" />
+
+
+        <Button
+
+            android:id="@+id/username_register_button"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="40dp"
+
+            android:layout_marginLeft="40dp"
+
+            android:layout_marginTop="20dp"
+
+            android:layout_marginRight="40dp"
+
+            android:text="注册并登录"
+
+            android:textColor="#fff"
+
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+</FrameLayout>
+

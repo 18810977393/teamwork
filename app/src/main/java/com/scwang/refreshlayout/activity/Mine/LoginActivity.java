@@ -3,17 +3,16 @@ package com.scwang.refreshlayout.activity.Mine;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,8 +24,8 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.scwang.refreshlayout.R;
 
-public class LoginActivity extends AppCompatActivity {
-  private AutoCompleteTextView mUsernameView;
+public class LoginActivity extends Activity {
+  private EditText mUsernameView;
   private EditText mPasswordView;
   private View mProgressView;
   private View mLoginFormView;
@@ -34,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_login);
+    setContentView(R.layout.activity_login2);
 
     if (AVUser.getCurrentUser() != null) {
       //startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -43,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //    getSupportActionBar().setTitle("登录");
-    mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
+    mUsernameView = (EditText) findViewById(R.id.username);
 
     mPasswordView = (EditText) findViewById(R.id.password);
     mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -75,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
     });
 
     mLoginFormView = findViewById(R.id.login_form);
-    mProgressView = findViewById(R.id.login_progress);
+
   }
 
   private void attemptLogin() {
