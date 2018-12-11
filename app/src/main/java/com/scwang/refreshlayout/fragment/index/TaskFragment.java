@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.FragmentActivity;
@@ -26,6 +27,7 @@ import com.scwang.refreshlayout.activity.Task.RepastPracticeActivity;
 
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
+import com.scwang.refreshlayout.countDown.CountdownActivity;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
 import java.util.Arrays;
@@ -94,10 +96,10 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
                        //
                         break;
                     case 3:
-                        //
+//                        Toast.makeText(TaskFragment.this,"",Toast.LENGTH_LONG).show();
                         break;
                     case 4:
-                       //
+                        startActivity(new Intent(getContext(),CountdownActivity.class));
                         break;
                 }
             }
