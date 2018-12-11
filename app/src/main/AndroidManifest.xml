@@ -38,6 +38,8 @@
             android:name=".activity.Award.FlyRefreshStyleActivity"
             android:label="@string/title_activity_style_fly_refresh"
             android:screenOrientation="portrait" />
+        <activity android:name=".countDown.CountdownActivity"/>
+        <activity android:name=".activity.Award.MainActivity"/>
         <activity
             android:name=".activity.Award.ClassicsStyleActivity"
             android:label="@string/title_activity_style_classics"
