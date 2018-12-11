@@ -85,5 +85,4 @@ dependencies {
     implementation 'cn.leancloud.android:avoscloud-feedback:v4.7.3@aar'
     implementation 'cn.leancloud.android:avoscloud-sns:v4.7.3@aar'
     implementation 'cn.leancloud.android:qq-sdk:1.6.1-leancloud'
-    implementation 'cn.leancloud.android:avoscloud-search:v4.7.3@aar'
 }

@@ -3,15 +3,15 @@ import com.avos.avoscloud.AVObject;
 
 public class Award extends AVObject implements Comparable<Award>
 {
-    private String name, time;
+    private String name,Totaltime;
     private int score,times;
     private int type;
-    public Award(String name, int score, int times,String time, int type)
+    public Award(String name, int score,String totaltime,int times, int type)
     {
         this.name =name;
         this.score = score;
         this.times = times;
-        this.time = time;
+        this.Totaltime = totaltime;
         this.type = type;
     }
 

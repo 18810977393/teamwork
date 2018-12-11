@@ -20,13 +20,15 @@ import com.scwang.refreshlayout.R;
 
 
 import com.scwang.refreshlayout.activity.Award.AwardActivity;
-import com.scwang.refreshlayout.activity.Award.FlyRefreshStyleActivity;
+import com.scwang.refreshlayout.activity.Award.ClassicsStyleActivity;
 import com.scwang.refreshlayout.activity.Award.FunGameBattleCityStyleActivity;
 import com.scwang.refreshlayout.activity.Award.FunGameHitBlockStyleActivity;
+import com.scwang.refreshlayout.activity.Award.MainActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 import com.scwang.smartrefresh.header.DropBoxHeader;
+import com.scwang.smartrefresh.header.FunGameBattleCityHeader;
 import com.scwang.smartrefresh.header.FunGameHitBlockHeader;
 import com.scwang.smartrefresh.header.PhoenixHeader;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
@@ -50,9 +52,11 @@ public class AwardFragment extends Fragment implements AdapterView.OnItemClickLi
 
     private enum Item {
 
+        Classic(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
         小游戏1(R.string.title_activity_style_hit_block, FunGameHitBlockStyleActivity.class),
         小游戏2(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
-        Award(R.string.title_activity_style_delivery,AwardActivity.class),
+        Award(R.string.title_activity_style_delivery, MainActivity.class),
+
         ;
         public int nameId;
         public Class<?> clazz;
@@ -121,18 +125,10 @@ public class AwardFragment extends Fragment implements AdapterView.OnItemClickLi
                         @Override
                         public void run() {
                             RefreshHeader refreshHeader = refreshLayout.getRefreshHeader();
-                            if (refreshHeader instanceof RefreshHeaderWrapper) {
-                                refreshLayout.setRefreshHeader(new PhoenixHeader(getContext()));
-                            } else if (refreshHeader instanceof PhoenixHeader) {
-                                refreshLayout.setRefreshHeader(new DropBoxHeader(getContext()));
-                            } else if (refreshHeader instanceof DropBoxHeader) {
-                                refreshLayout.setRefreshHeader(new FunGameHitBlockHeader(getContext()));
-                            } else if (refreshHeader instanceof FunGameHitBlockHeader) {
+                                if (refreshHeader instanceof FunGameHitBlockHeader) {
                                 refreshLayout.setRefreshHeader(new ClassicsHeader(getContext()));
-                            }
-
-                            else {
-                                refreshLayout.setRefreshHeader(new RefreshHeaderWrapper(new BallPulseFooter(getContext())));
+                            } else if(refreshHeader instanceof FunGameBattleCityHeader) {
+                                refreshLayout.setRefreshHeader(new FunGameHitBlockHeader(getContext()));
                             }
                             refreshLayout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
                         }

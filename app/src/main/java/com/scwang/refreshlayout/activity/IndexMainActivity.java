@@ -20,7 +20,6 @@ import com.scwang.refreshlayout.util.StatusBarUtil;
 
 public class IndexMainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 
-//    private SrcMenu mSrcMenu;
 
     private enum TabFragment {
         任务(R.id.navigation_practice, TaskFragment.class),
