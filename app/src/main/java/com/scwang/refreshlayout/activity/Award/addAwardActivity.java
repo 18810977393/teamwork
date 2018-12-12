@@ -110,7 +110,7 @@ public class addAwardActivity extends AppCompatActivity {
                         writer = new PrintWriter(file0);
                         writer.write(fileName + "|"+ scores + "|" + times);
 
-                        //Award award = new Award(fileName,scores,times,0,type)
+
                         AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
                         testObject.put("Title",fileName);
                         testObject.put("Type",type);

@@ -19,7 +19,6 @@ import android.widget.AdapterView;
 import com.scwang.refreshlayout.R;
 
 
-import com.scwang.refreshlayout.activity.Award.AwardActivity;
 import com.scwang.refreshlayout.activity.Award.ClassicsStyleActivity;
 import com.scwang.refreshlayout.activity.Award.FunGameBattleCityStyleActivity;
 import com.scwang.refreshlayout.activity.Award.FunGameHitBlockStyleActivity;
@@ -27,15 +26,11 @@ import com.scwang.refreshlayout.activity.Award.MainActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.util.StatusBarUtil;
-import com.scwang.smartrefresh.header.DropBoxHeader;
 import com.scwang.smartrefresh.header.FunGameBattleCityHeader;
 import com.scwang.smartrefresh.header.FunGameHitBlockHeader;
-import com.scwang.smartrefresh.header.PhoenixHeader;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.scwang.smartrefresh.layout.impl.RefreshHeaderWrapper;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.Arrays;
