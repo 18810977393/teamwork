@@ -63,10 +63,5 @@
         </RelativeLayout>
 
     </RelativeLayout>
-    <include layout="@layout/item_nickName_layout"/>
-    <include layout="@layout/item_sex_layout"/>
-    <include layout="@layout/item_signName_layout" />
-    <include layout="@layout/item_password_layout" />
-    <include layout="@layout/item_versions_layout" />
 
 </LinearLayout>
