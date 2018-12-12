@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,9 +31,12 @@ public class addAwardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_award);
 
+        //构造一个数组用于放下拉列表的选项
         String[] ctype = new String[]{"单次", "无限"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);  //创建一个数组适配器
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
+        //创建一个数组适配器
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);
+        //设置下拉列表框的下拉选项样式
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinner = (Spinner) super.findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
 
@@ -92,9 +96,8 @@ public class addAwardActivity extends AppCompatActivity {
             file.mkdir();//创建文件夹
         }
         File file0 = new File(file,fileName);
-
         PrintWriter writer = null;
-        if (scores.equals("")||scores.equals(null))
+        if (scores.equals("")||scores.equals(null))//可以直接使用 TextUtils.isEmpty(scores)
             showAlertDialog("添加失败", "请输入耗费成就点数");
         else
             {
