@@ -11,7 +11,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -27,7 +26,6 @@ import com.avos.avoscloud.FindCallback;
 import com.scwang.refreshlayout.R;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerAdapter.setOnItemLongClickListener(new MainRecyclerAdapter.OnRecyclerItemLongListener() {
             @Override
             public void onItemLongClick(View view, int position) {
+                String objectId = mList.get(position).getObjectId();
+                AVObject todo = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), objectId);
+                todo.put("Title","see movie");
+                // 保存到云端
+                todo.saveInBackground();
                 Toast toast=Toast.makeText(getApplicationContext(), "长按", Toast.LENGTH_LONG);
                 toast.show();
             }
@@ -107,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
         mList.clear();
         AVQuery<AVObject> avQuery = new AVQuery<>(AVUser.getCurrentUser().getUsername());
+        avQuery.whereEqualTo("Type",1);
         avQuery.orderByDescending("createdAt");
         avQuery.findInBackground(new FindCallback<AVObject>() {
             @Override

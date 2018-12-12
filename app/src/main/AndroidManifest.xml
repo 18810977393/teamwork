@@ -53,10 +53,6 @@
             android:label="@string/title_activity_style_hit_block"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.Award.AwardActivity"
-            android:label="@string/title_activity_award"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.Award.addAwardActivity"
             android:label="addAward"
             android:screenOrientation="portrait" />
