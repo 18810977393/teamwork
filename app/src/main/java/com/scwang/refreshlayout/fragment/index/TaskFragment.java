@@ -16,14 +16,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.FragmentActivity;
 
 import com.scwang.refreshlayout.activity.MenuButton.SrcMenu;
 import com.scwang.refreshlayout.activity.Task.ProfilePracticeActivity;
-import com.scwang.refreshlayout.activity.Task.RepastPracticeActivity;
+import com.scwang.refreshlayout.activity.Task.DayTaskActivity;
 
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
@@ -35,16 +34,12 @@ import java.util.Arrays;
 import static android.R.layout.simple_list_item_2;
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 
-/**
- * 实战演示
- * A simple {@link Fragment} subclass.
- */
 public class TaskFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private SrcMenu mSrcMenu;
 
     private enum Item {
-        Repast(R.string.index_practice_repast, RepastPracticeActivity.class),
+        Task(R.string.index_practice_repast, DayTaskActivity.class),
         Profile(R.string.index_practice_profile, ProfilePracticeActivity.class),
         ;
         @StringRes

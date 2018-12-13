@@ -1,4 +1,4 @@
-package com.scwang.refreshlayout.activity.Award;
+package com.scwang.refreshlayout.activity.Task;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -18,20 +18,16 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SaveCallback;
 import com.scwang.refreshlayout.R;
 
-import java.io.File;
-import java.io.PrintWriter;
-
-public class addAwardActivity extends AppCompatActivity {
-    private Spinner  sp;
+public class addDayTaskActivity extends AppCompatActivity {
+    private Spinner sp;
     private String str;
     private Toolbar mToolbar;
-    private final int type = 1;
+    private final int type = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_award);
-
-        String[] ctype = new String[]{"单次", "无限"};
+        setContentView(R.layout.activity_add_day_task);
+        String[] ctype = new String[]{"1次", "2次","3次"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);  //创建一个数组适配器
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
         Spinner spinner = (Spinner) super.findViewById(R.id.spinner);
@@ -60,7 +56,6 @@ public class addAwardActivity extends AppCompatActivity {
             }
         });
     }
-
     public void cancel(View view) {
         finish();
     }
@@ -72,55 +67,60 @@ public class addAwardActivity extends AppCompatActivity {
         String scores = ((EditText) findViewById(R.id.pays))
                 .getText().toString();
         String times ;
-       if (str.equals("无限"))
-       {
-           times = "∞";
-       }
-       else
-           {
-               times = String.valueOf(1);
-           }
+        if (str.equals("1次"))
+        {
+            times = String.valueOf(1);
+        }
+        else {
+            if (str.equals("2次"))
+            {
+                times =String.valueOf(2);
+            }
+            else
+                times = String.valueOf(3);
+        }
 
 
 
         if (scores.equals("")||scores.equals(null))
-            showAlertDialog("添加失败", "请输入耗费成就点数");
+            showAlertDialog("添加失败", "请输入成就点数");
         else
+        {
+            if (!isNum(scores))
             {
-                if (!isNum(scores))
-                {
-                    showAlertDialog("添加失败", "耗费成就点数为整数");
-                }
-                else
-                    try {
-                        AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
-                        testObject.put("Title",fileName);
-                        testObject.put("Type",type);
-                        testObject.put("Scores",scores);
-                        testObject.put("Totaltime",times);
-                        testObject.put("times",0);
-                        testObject.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(AVException e) {
-                                if(e == null){
-                                    Log.d("saved","success!");
-                                }
+                showAlertDialog("添加失败", "成就点数为整数");
+            }
+            else
+                try {
+                    AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
+                    testObject.put("Title",fileName);
+                    testObject.put("Type",type);
+                    testObject.put("Scores",scores);
+                    testObject.put("Totaltime",times);
+                    testObject.put("times",0);
+                    testObject.put("status",true);
+                    testObject.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(AVException e) {
+                            if(e == null){
+                                Log.d("saved","success!");
                             }
-                        });
-                        finish();
+                        }
+                    });
+                    finish();
                 }
                 catch (Exception e) {
-                    showAlertDialog("添加失败", "请输入奖励名称");
+                    showAlertDialog("添加失败", "请输入任务名称");
                 }
                 finally {
 
                 }
-            }
+        }
     }
 
     private void showAlertDialog(String title, String message) {
         AlertDialog.Builder alertDialog = new
-                AlertDialog.Builder(addAwardActivity.this);
+                AlertDialog.Builder(addDayTaskActivity.this);
         alertDialog.setTitle(title);
         alertDialog.setMessage(message);
         alertDialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {

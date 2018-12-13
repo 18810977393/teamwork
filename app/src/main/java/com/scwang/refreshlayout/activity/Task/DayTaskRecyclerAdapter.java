@@ -1,16 +1,16 @@
-package com.scwang.refreshlayout.activity.Award;
+package com.scwang.refreshlayout.activity.Task;
 
 import android.content.Context;
-
-
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
-
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVUser;
 import com.scwang.refreshlayout.R;
 
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by BinaryHB on 11/24/15.
  */
-public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder> {
+public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecyclerAdapter.MainViewHolder> {
   private Context mContext;
   private List<AVObject> mList;
   private OnRecyclerViewItemClickListener mOnItemClickListener = null;
@@ -29,7 +29,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
   }
   public interface OnRecyclerItemLongListener{
-    void onItemLongClick(View view,int position);
+    void onItemLongClick(View view, int position);
   }
 
   public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
@@ -38,7 +38,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
   public void setOnItemLongClickListener(OnRecyclerItemLongListener listener){
     this.mOnItemLong =  listener;
   }
-  public MainRecyclerAdapter(List<AVObject> list, Context context) {
+  public DayTaskRecyclerAdapter(List<AVObject> list, Context context) {
     this.mContext = context;
     this.mList = list;
   }
@@ -46,7 +46,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
   @Override
   public MainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(mContext).inflate(R.layout.item_list_main, parent, false);
+    View view = LayoutInflater.from(mContext).inflate(R.layout.item_task_list_main, parent, false);
     MainViewHolder holder = new MainViewHolder(view, mOnItemClickListener,mOnItemLong);
     return holder;
 
@@ -54,11 +54,37 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
   }
 
   @Override
-  public void onBindViewHolder(MainViewHolder holder, final int position) {
+  public void onBindViewHolder(final MainViewHolder holder, final int position) {
     holder.Title.setText((CharSequence) mList.get(position).getString("Title"));
-    holder.scores.setText("-"+mList.get(position).getString("Scores"));
+    holder.scores.setText(mList.get(position).getString("Scores"));
     holder.times.setText(mList.get(position).getInt("times")+" / "+mList.get(position).getString("Totaltime"));
-
+    holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked)
+        {
+          AVObject avObject = mList.get(position);
+          if (avObject.getInt("times")==Integer.valueOf(avObject.getString("Totaltime"))-1)
+          {
+            String objectId = avObject.getObjectId();
+            AVObject todo = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), objectId);
+            todo.put("status",false);
+            // 保存到云端
+            todo.saveInBackground();
+          }
+          else
+          {
+            String objectId = avObject.getObjectId();
+            int a = mList.get(position).getInt("times")+1;
+            AVObject todo = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), objectId);
+            todo.put("times",a);
+            // 保存到云端
+            todo.saveInBackground();
+          }
+          isChecked = false;
+        }
+      }
+    });
   }
 
   @Override
@@ -70,6 +96,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     private TextView Title;
     private TextView scores;
     private TextView times;
+    private CheckBox checkBox;
 
     private OnRecyclerViewItemClickListener mOnItemClickListener = null;
     private OnRecyclerItemLongListener mOnItemLong = null;
@@ -78,6 +105,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
       Title = (TextView) itemView.findViewById(R.id.Title);
       scores = (TextView) itemView.findViewById(R.id.scores);
       times = (TextView) itemView.findViewById(R.id.times);
+      checkBox = (CheckBox)itemView.findViewById(R.id.checkbox);
       this.mOnItemClickListener = mListener;
       this.mOnItemLong = longListener;
       itemView.setOnClickListener(this);

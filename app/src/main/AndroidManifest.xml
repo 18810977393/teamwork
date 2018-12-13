@@ -30,16 +30,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewPager.ViewPagerActivity"></activity>
+        <activity android:name=".ViewPager.ViewPagerActivity" />
         <activity
             android:name=".activity.FragmentActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Award.FlyRefreshStyleActivity"
-            android:label="@string/title_activity_style_fly_refresh"
-            android:screenOrientation="portrait" />
-        <activity android:name=".countDown.CountdownActivity"/>
-        <activity android:name=".activity.Award.MainActivity"/>
+        <activity android:name=".countDown.CountdownActivity" />
+        <activity android:name=".activity.Award.MainActivity" />
         <activity
             android:name=".activity.Award.ClassicsStyleActivity"
             android:label="@string/title_activity_style_classics"
@@ -55,10 +51,6 @@
         <activity
             android:name=".activity.Award.addAwardActivity"
             android:label="addAward"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Award.DeliveryStyleActivity"
-            android:label="@string/title_activity_style_drop_box"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.Mine.BasicExampleActivity"
@@ -85,7 +77,7 @@
             android:label="@string/title_activity_example_assign_code"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.Task.RepastPracticeActivity"
+            android:name=".activity.Task.DayTaskActivity"
             android:label="@string/title_activity_practice_repast"
             android:screenOrientation="portrait" />
         <activity
@@ -102,7 +94,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.IndexMainActivity"
-            android:label="@string/title_activity_index_main"></activity>
+            android:label="@string/title_activity_index_main" />
+        <activity android:name=".activity.Task.addDayTaskActivity" />
+        <activity android:name=".activity.Task.ModifyDayTaskActivity"></activity>
     </application>
 
 </manifest>

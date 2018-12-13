@@ -16,7 +16,7 @@
         android:layout_alignStart="@+id/noteTitle"
         android:layout_marginTop="135dp"
         android:ems="10"
-        android:hint="耗费成就点数" />
+        android:hint="成就点数" />
 
     <EditText
         android:id="@+id/noteTitle"
@@ -74,7 +74,7 @@
         style="@style/AppTheme.Toolbar"
         android:background="@color/colorPrimaryOverlay"
         app:navigationIcon="@drawable/ic_arrow_back_gray_24dp"
-        app:title="添加奖励"
+        app:title="添加每日任务"
         app:titleTextColor="#fbbb" />
 
 </RelativeLayout>
