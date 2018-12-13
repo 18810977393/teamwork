@@ -9,10 +9,14 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.FindCallback;
 import com.scwang.refreshlayout.R;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -71,6 +75,7 @@ public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecycler
             todo.put("status",false);
             // 保存到云端
             todo.saveInBackground();
+            holder.checkBox.setChecked(true);
           }
           else
           {
@@ -81,7 +86,7 @@ public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecycler
             // 保存到云端
             todo.saveInBackground();
           }
-          isChecked = false;
+          holder.checkBox.setChecked(false);
         }
       }
     });

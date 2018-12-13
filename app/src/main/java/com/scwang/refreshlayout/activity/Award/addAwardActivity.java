@@ -1,7 +1,6 @@
 package com.scwang.refreshlayout.activity.Award;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -82,7 +81,6 @@ public class addAwardActivity extends AppCompatActivity {
            }
 
 
-
         if (scores.equals("")||scores.equals(null))
             showAlertDialog("添加失败", "请输入耗费成就点数");
         else
@@ -93,6 +91,8 @@ public class addAwardActivity extends AppCompatActivity {
                 }
                 else
                     try {
+
+
                         AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
                         testObject.put("Title",fileName);
                         testObject.put("Type",type);
@@ -112,22 +112,16 @@ public class addAwardActivity extends AppCompatActivity {
                 catch (Exception e) {
                     showAlertDialog("添加失败", "请输入奖励名称");
                 }
-                finally {
-
-                }
             }
     }
 
     private void showAlertDialog(String title, String message) {
-        AlertDialog.Builder alertDialog = new
-                AlertDialog.Builder(addAwardActivity.this);
+        AlertDialog alertDialog = new
+                AlertDialog.Builder(this).create();
         alertDialog.setTitle(title);
         alertDialog.setMessage(message);
-        alertDialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {}
-        });
         alertDialog.show();
+
     }
     public static boolean isNum(String str){
         return str.matches("^[-+]?(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$");
