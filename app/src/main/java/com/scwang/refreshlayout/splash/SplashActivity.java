@@ -12,15 +12,16 @@ import android.view.WindowManager;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.ViewPager.ViewPagerActivity;
 import com.scwang.refreshlayout.activity.IndexMainActivity;
+import com.scwang.refreshlayout.启动页面.InitiateActivity;
 
 public class SplashActivity extends AppCompatActivity {
-
+    private boolean first;
     private final static int DELAY_TIME = 3000 ;
     String SHARE_APP_TAG ="Judge_the_first";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         //隐藏状态栏
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+//        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         //隐藏标题栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -38,8 +39,9 @@ public class SplashActivity extends AppCompatActivity {
                     setting.edit().putBoolean("FIRST", false).commit();
                     startActivity(new Intent(SplashActivity.this ,
                             ViewPagerActivity.class));
-                }else{//以后就没有引导页面了
-                    startActivity(new Intent(SplashActivity.this, IndexMainActivity.class));
+                }
+                else{//以后就没有引导页面了
+                    startActivity(new Intent(SplashActivity.this, InitiateActivity.class));
                 }
                 finish();
             }

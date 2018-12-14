@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.ViewPager.ViewPagerActivity;
+import com.scwang.refreshlayout.activity.IndexMainActivity;
 import com.scwang.refreshlayout.splash.SplashActivity;
 
 public class InitiateActivity extends AppCompatActivity {
@@ -63,7 +64,7 @@ public class InitiateActivity extends AppCompatActivity {
         @Override
         public void run() {
             try{
-                imageView.setImageResource(R.drawable.first);
+                imageView.setImageResource(R.drawable.second);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0,1);
                 alphaAnimation.setDuration(3000);
                 alphaAnimation.setRepeatCount(0);
@@ -79,7 +80,7 @@ public class InitiateActivity extends AppCompatActivity {
         @Override
         public void run() {
             try{
-                Intent intent = new Intent(InitiateActivity.this, SplashActivity.class);
+                Intent intent = new Intent(InitiateActivity.this, IndexMainActivity.class);
                 startActivity(intent);
                 finish();
             }
