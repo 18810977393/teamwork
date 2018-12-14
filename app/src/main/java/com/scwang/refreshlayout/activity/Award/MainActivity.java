@@ -69,7 +69,19 @@ public class MainActivity extends AppCompatActivity {
                         dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                               delete(position);
+                                if (mList.get(position).getString("Totaltime").compareTo("∞")==0)
+                                {
+                                    String objectId = mList.get(position).getObjectId();
+                                    Integer a = mList.get(position).getInt("times")+1;
+                                    AVObject todo = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), objectId);
+                                    todo.put("times",a);
+                                    // 保存到云端
+                                    todo.saveInBackground();
+                                    initData();
+                                }
+                                else {
+                                    delete(position);
+                                }
                             }
                         });
                         dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

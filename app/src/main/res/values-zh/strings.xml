@@ -34,8 +34,8 @@
     <string name="title_activity_style_hit_block">打砖块</string>
     <string name="title_activity_style_storehouse">StoreHouse</string>
     <string name="title_activity_style_drop_box">掉落盒子</string>
-    <string name="title_activity_style_delivery">气球快递</string>
-    <string name="title_activity_style_fly_refresh">纸飞机</string>
+    <string name="title_activity_style_delivery">奖励清单</string>
+
 
     <string name="title_activity_example_basic">基本使用</string>
     <string name="title_activity_example_assign_default">全局默认</string>
@@ -70,7 +70,7 @@
     <string name="index_example_bottom_sheet">BottomSheet内部使用加载更多</string>
     <string name="index_example_level">三级刷新</string>
 
-    <string name="index_practice_repast">餐饮美食-简单自定义Header-外边距magin</string>
+    <string name="index_practice_repast">每日任务</string>
     <string name="index_practice_profile">个人中心-PureScrollMode-纯滚动模式</string>
     <string name="index_practice_web_view">网页引用-WebView</string>
     <string name="index_practice_feed_list">微博列表-智能识别</string>
