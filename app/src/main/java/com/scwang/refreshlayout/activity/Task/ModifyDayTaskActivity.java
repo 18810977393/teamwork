@@ -2,6 +2,8 @@ package com.scwang.refreshlayout.activity.Task;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.inputmethodservice.ExtractEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +16,7 @@ import android.widget.Spinner;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SaveCallback;
 import com.scwang.refreshlayout.R;
@@ -23,16 +26,28 @@ public class ModifyDayTaskActivity extends AppCompatActivity {
     private String str;
     private Toolbar mToolbar;
     private final int type = 2;
+    private  EditText editText1,editText2;
+
+    String objectId,title,scores;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_day_task);
+        Intent intent=getIntent();
+        objectId=intent.getStringExtra("objectId");
+        title = intent.getStringExtra("title");
+        scores = intent.getStringExtra("scores");
+
         String[] ctype = new String[]{"1次", "2次","3次"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);  //创建一个数组适配器
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
         Spinner spinner = (Spinner) super.findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
 
+        editText1 = (EditText) super.findViewById(R.id.noteTitle);
+        editText2 = (EditText)super.findViewById(R.id.pays);
+        editText1.setText(title.toCharArray(),0,title.length());
+        editText2.setText(scores.toCharArray(),0,scores.length());
 
         sp = (Spinner) findViewById(R.id.spinner);
         str = (String) sp.getSelectedItem();
@@ -83,38 +98,28 @@ public class ModifyDayTaskActivity extends AppCompatActivity {
 
 
         if (scores.equals("")||scores.equals(null))
-            showAlertDialog("添加失败", "请输入成就点数");
+            showAlertDialog("保存失败", "请输入成就点数");
         else
         {
             if (!isNum(scores))
             {
-                showAlertDialog("添加失败", "成就点数为整数");
+                showAlertDialog("保存失败", "成就点数为整数");
             }
             else
                 try {
-                    AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
-                    testObject.put("Title",fileName);
-                    testObject.put("Type",type);
-                    testObject.put("Scores",scores);
-                    testObject.put("Totaltime",times);
-                    testObject.put("times",0);
-                    testObject.put("status",true);
-                    testObject.saveInBackground(new SaveCallback() {
-                        @Override
-                        public void done(AVException e) {
-                            if(e == null){
-                                Log.d("saved","success!");
-                            }
-                        }
-                    });
+                    AVObject  todo = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), objectId);
+                    todo.put("Title",fileName);
+                    todo.put("Scores",scores);
+                    todo.put("Totaltime",times);
+                    todo.put("times",0);
+                    todo.put("status",true);
+                    todo.saveInBackground();
                     finish();
                 }
                 catch (Exception e) {
-                    showAlertDialog("添加失败", "请输入任务名称");
+                    showAlertDialog("保存失败", "请输入任务名称");
                 }
-                finally {
 
-                }
         }
     }
 

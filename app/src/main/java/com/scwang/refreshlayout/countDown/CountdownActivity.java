@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -71,12 +72,12 @@ public class CountdownActivity extends AppCompatActivity {
     }
 
     private void startAnimation() {
-        Animation translateAnimation = new TranslateAnimation(0, 100, 0, 0);
-        translateAnimation.setDuration(1500);
-        translateAnimation.setInterpolator(this, android.R.anim.cycle_interpolator);//设置动画插入器
-        translateAnimation.setRepeatCount(1000000);
-        translateAnimation.setFillAfter(true);//设置动画结束后保持当前的位置（即不返回到动画开始前的位置）
-        astronaut_iv.startAnimation(translateAnimation);
+        Animation rotateAnimation = new RotateAnimation(0, 355, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 3.3f);
+        rotateAnimation.setDuration(60000);
+        rotateAnimation.setRepeatCount(-1);
+        rotateAnimation.setFillAfter(true);
+        rotateAnimation.setInterpolator(this, android.R.anim.accelerate_decelerate_interpolator);//设置动画插入器
+        astronaut_iv.startAnimation(rotateAnimation);
     }
 
     Handler handler = new Handler();
