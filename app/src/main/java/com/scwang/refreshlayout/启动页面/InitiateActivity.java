@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.ViewPager.ViewPagerActivity;
 import com.scwang.refreshlayout.activity.IndexMainActivity;
-import com.scwang.refreshlayout.splash.SplashActivity;
+
 
 public class InitiateActivity extends AppCompatActivity {
     private ImageView imageView;
