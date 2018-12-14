@@ -75,7 +75,6 @@ public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecycler
             todo.put("status",false);
             // 保存到云端
             todo.saveInBackground();
-            holder.checkBox.setChecked(true);
           }
           else
           {

@@ -81,21 +81,23 @@ public class DayTaskActivity extends AppCompatActivity {
             mRecyclerAdapter.setOnItemClickListener(new DayTaskRecyclerAdapter.OnRecyclerViewItemClickListener() {
                @Override
                public void onItemClick(View view, final int data) {
-                   AlertDialog.Builder dialog = new AlertDialog.Builder(DayTaskActivity.this);
-                   dialog.setTitle("满足奖励");
-                   dialog.setMessage("花费成就点数来满足奖励");
-                   dialog.setCancelable(false);
-                   dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                       @Override
-                       public void onClick(DialogInterface dialog, int which) {
-                           delete(data);
-                       }
-                   });
-                   dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                       @Override
-                       public void onClick(DialogInterface dialog, int which) {}
-                   });
-                   dialog.show();
+//                   AlertDialog.Builder dialog = new AlertDialog.Builder(DayTaskActivity.this);
+//                   dialog.setTitle("满足奖励");
+//                   dialog.setMessage("花费成就点数来满足奖励");
+//                   dialog.setCancelable(false);
+//                   dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                       @Override
+//                       public void onClick(DialogInterface dialog, int which) {
+//                           delete(data);
+//                       }
+//                   });
+//                   dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                       @Override
+//                       public void onClick(DialogInterface dialog, int which) {}
+//                   });
+//                   dialog.show();
+                   modify(data);
+
                }
            });
 
@@ -167,6 +169,17 @@ public class DayTaskActivity extends AppCompatActivity {
             }
         },objectId);
         initData();
+    }
+    private void modify(int position)
+    {
+        String objectId = mList.get(position).getObjectId();
+        String title = mList.get(position).getString("Title");
+        String scores = mList.get(position).getString("Scores");
+        Intent intent = new Intent(DayTaskActivity.this,ModifyDayTaskActivity.class);
+        intent.putExtra("objectId",objectId);
+        intent.putExtra("title",title);
+        intent.putExtra("scores",scores);
+        startActivityForResult(intent, 3);
     }
     @Override
     protected void onResume() {
