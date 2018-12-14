@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
 import android.view.WindowManager;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.ViewPager.ViewPagerActivity;
-import com.scwang.refreshlayout.activity.IndexMainActivity;
-import com.scwang.refreshlayout.启动页面.InitiateActivity;
+import com.scwang.refreshlayout.Initiate.InitiateActivity;
 
 public class SplashActivity extends AppCompatActivity {
     private boolean first;

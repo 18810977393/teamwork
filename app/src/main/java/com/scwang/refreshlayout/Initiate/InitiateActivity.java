@@ -1,7 +1,6 @@
-package com.scwang.refreshlayout.启动页面;
+package com.scwang.refreshlayout.Initiate;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -12,7 +11,6 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 
 import com.scwang.refreshlayout.R;
-import com.scwang.refreshlayout.ViewPager.ViewPagerActivity;
 import com.scwang.refreshlayout.activity.IndexMainActivity;
 
 
@@ -32,34 +30,34 @@ public class InitiateActivity extends AppCompatActivity {
         animationDrawable = (AnimationDrawable) imageView.getDrawable();
         player.start();
         Handler handler = new Handler();
-        handler.postDelayed(begin0,0020);
-        handler.postDelayed(begin1,5020);
-        handler.postDelayed(begin3,6020);
-        handler.postDelayed(begin4,9020);
+//        handler.postDelayed(begin0,0020);
+//        handler.postDelayed(begin1,5020);
+        handler.postDelayed(begin3,0020);
+        handler.postDelayed(begin4,3020);
 
     }
-    private Runnable begin0 = new Runnable() {
-        @Override
-        public void run() {
-            try{
-                animationDrawable.start();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    };
-    private Runnable begin1 = new Runnable() {
-        @Override
-        public void run() {
-            try{
-                animationDrawable.stop();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    };
+//    private Runnable begin0 = new Runnable() {
+//        @Override
+//        public void run() {
+//            try{
+//                animationDrawable.start();
+//            }
+//            catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        }
+//    };
+//    private Runnable begin1 = new Runnable() {
+//        @Override
+//        public void run() {
+//            try{
+//                animationDrawable.stop();
+//            }
+//            catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        }
+//    };
     private Runnable begin3 = new Runnable() {
         @Override
         public void run() {

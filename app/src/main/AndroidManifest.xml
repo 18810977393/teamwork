@@ -23,7 +23,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".启动页面.InitiateActivity">
+        <activity android:name=".Initiate.InitiateActivity">
 
         </activity>
         <activity android:name=".splash.SplashActivity">
