@@ -32,13 +32,14 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
+                //判断用户是安装APP后第一次使用 ，是就出现功能引导页面
                 SharedPreferences setting = getSharedPreferences(SHARE_APP_TAG, 0);
                 Boolean user_first = setting.getBoolean("FIRST",true);
-                if(user_first){//第一次
+                if(user_first){
                     setting.edit().putBoolean("FIRST", false).commit();
                     startActivity(new Intent(SplashActivity.this ,
                             ViewPagerActivity.class));
-                }else{//以后就没有引导页面了
+                }else{
                     startActivity(new Intent(SplashActivity.this, IndexMainActivity.class));
                 }
                 finish();
