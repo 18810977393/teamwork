@@ -11,6 +11,8 @@ import android.view.WindowManager;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.ViewPager.ViewPagerActivity;
 import com.scwang.refreshlayout.Initiate.InitiateActivity;
+import com.scwang.refreshlayout.activity.IndexMainActivity;
+import com.youth.banner.loader.ImageLoader;
 
 public class SplashActivity extends AppCompatActivity {
     private boolean first;
@@ -39,7 +41,7 @@ public class SplashActivity extends AppCompatActivity {
                             ViewPagerActivity.class));
                 }
                 else{//以后就没有引导页面了
-                    startActivity(new Intent(SplashActivity.this, InitiateActivity.class));
+                    startActivity(new Intent(SplashActivity.this, IndexMainActivity.class));
                 }
                 finish();
             }
