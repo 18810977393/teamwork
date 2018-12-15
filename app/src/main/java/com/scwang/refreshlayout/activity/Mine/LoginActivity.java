@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.scwang.refreshlayout.R;
+import com.scwang.refreshlayout.fragment.index.ItemsView;
 
 public class LoginActivity extends Activity {
   private EditText mUsernameView;
