@@ -56,8 +56,8 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
   @Override
   public void onBindViewHolder(MainViewHolder holder, final int position) {
     holder.Title.setText((CharSequence) mList.get(position).getString("Title"));
-    holder.scores.setText(mList.get(position).getString("Scores"));
-    holder.times.setText(mList.get(position).getString("Totaltime"));
+    holder.scores.setText("-"+mList.get(position).getString("Scores"));
+    holder.times.setText(mList.get(position).getInt("times")+" / "+mList.get(position).getString("Totaltime"));
 
   }
 

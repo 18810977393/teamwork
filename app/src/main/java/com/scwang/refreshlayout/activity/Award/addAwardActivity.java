@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,12 +30,9 @@ public class addAwardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_award);
 
-        //构造一个数组用于放下拉列表的选项
         String[] ctype = new String[]{"单次", "无限"};
-        //创建一个数组适配器
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);
-        //设置下拉列表框的下拉选项样式
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);  //创建一个数组适配器
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
         Spinner spinner = (Spinner) super.findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
 
@@ -85,19 +81,7 @@ public class addAwardActivity extends AppCompatActivity {
            }
 
 
-        File parent = getFilesDir();
-
-        String path= parent.getAbsolutePath();
-        String name="Award";//你要新建的文件夹名或者文件名
-        String pathx=path+name;
-        File file=new File(pathx);
-        boolean is=file.exists();//判断文件（夹）是否存在
-        if(!is) {
-            file.mkdir();//创建文件夹
-        }
-        File file0 = new File(file,fileName);
-        PrintWriter writer = null;
-        if (scores.equals("")||scores.equals(null))//可以直接使用 TextUtils.isEmpty(scores)
+        if (scores.equals("")||scores.equals(null))
             showAlertDialog("添加失败", "请输入耗费成就点数");
         else
             {
@@ -107,8 +91,6 @@ public class addAwardActivity extends AppCompatActivity {
                 }
                 else
                     try {
-                        writer = new PrintWriter(file0);
-                        writer.write(fileName + "|"+ scores + "|" + times);
 
 
                         AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
@@ -129,13 +111,6 @@ public class addAwardActivity extends AppCompatActivity {
                 }
                 catch (Exception e) {
                     showAlertDialog("添加失败", "请输入奖励名称");
-                }
-                finally {
-                    if (writer != null) {
-                        try { writer.close();
-                        }
-                        catch (Exception e) { }
-                    }
                 }
             }
     }

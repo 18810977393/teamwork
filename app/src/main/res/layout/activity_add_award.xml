@@ -10,14 +10,13 @@
     <EditText
         android:id="@+id/pays"
         android:layout_width="183dp"
-        android:layout_height="67dp"
+        android:layout_height="66dp"
+        android:layout_alignLeft="@+id/noteTitle"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/noteTitle"
-        android:layout_marginTop="134dp"
+        android:layout_marginTop="135dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        tools:hint="耗费成就点数"
-        android:layout_alignLeft="@+id/noteTitle" />
+        android:hint="消耗星星数" />
 
     <EditText
         android:id="@+id/noteTitle"

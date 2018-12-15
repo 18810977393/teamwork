@@ -1,6 +1,7 @@
 package com.scwang.refreshlayout.activity;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,17 +10,30 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 
 
+import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.FindCallback;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.fragment.index.MineFragment;
 import com.scwang.refreshlayout.fragment.index.TaskFragment;
 import com.scwang.refreshlayout.fragment.index.AwardFragment;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class IndexMainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 
+    private int stars;
+    private AVObject avObject;
+    private List<AVObject> mList = new ArrayList<>();
 
     private enum TabFragment {
         任务(R.id.navigation_practice, TaskFragment.class),
@@ -69,7 +83,8 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index_main);
-
+        StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         final BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
@@ -81,7 +96,15 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
             }
             @Override
             public Fragment getItem(int position) {
-                return TabFragment.values()[position].fragment();
+                Fragment fragment = TabFragment.values()[position].fragment();
+                Bundle bundle = new Bundle();
+                try {
+                    bundle.putString("scores", String.valueOf(getStars()));
+                } catch (AVException e) {
+                    e.printStackTrace();
+                }
+                fragment.setArguments(bundle);
+                return fragment;
             }
         });
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
@@ -90,35 +113,9 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
                 navigation.setSelectedItemId(TabFragment.values()[position].menuId);
             }
         });
-
         //状态栏透明和间距处理
         StatusBarUtil.immersive(this, 0xff000000, 0.1f);
 
-//        //
-//        mSrcMenu = (SrcMenu) findViewById(R.id.src_menu);
-//        mSrcMenu.setOnMenuItemClickListener(new SrcMenu.OnMenuItemClickListener() {
-//            @Override
-//            public void onClick(View view, int position) {
-//                switch (position){
-//                    case 1:
-//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
-//                                .show();
-//                        break;
-//                    case 2:
-//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
-//                                .show();
-//                        break;
-//                    case 3:
-//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
-//                                .show();
-//                        break;
-//                    case 4:
-//                        Toast.makeText(IndexMainActivity.this, position + ":" + view.getTag(), Toast.LENGTH_SHORT)
-//                                .show();
-//                        break;
-//                }
-//            }
-//        });
     }
 
     @Override
@@ -128,11 +125,57 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        AVAnalytics.onResume(this);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AVAnalytics.onPause(this);
+    }
+
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         ((ViewPager)findViewById(R.id.content)).setCurrentItem(TabFragment.from(item.getItemId()).ordinal());
         return true;
     }
+    private void initData()
+    {
+        mList.clear();
+        AVQuery<AVObject> avQuery1 =new AVQuery<>("Data_table");
+        avQuery1.orderByDescending("createdAt");
+        avQuery1.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> list, AVException e) {
+                if (e == null) {
+                    mList.addAll(list);
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    public int getStars() throws AVException {
+        final String name = AVUser.getCurrentUser().getUsername();
+        mList.clear();
+        AVQuery<AVObject> avQuery =new AVQuery<>("Data_table");
+        mList = avQuery.find();
+        for (int i =0;i<mList.size();i++)
+        {
+            if (name.compareTo(mList.get(i).getString("Name"))==0)
+            {
+                avObject = mList.get(i);
+                break;
+            }
+        }
+        if (avObject==null)
+            stars = 0;
+        else
+            stars = avObject.getInt("Scores");
 
-
+        return stars;
+    }
 
 }

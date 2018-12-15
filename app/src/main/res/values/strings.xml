@@ -36,7 +36,7 @@
     <string name="title_activity_style_drop_box">DropBoxHeader</string>
     <string name="title_activity_style_delivery">DeliveryHeader</string>
     <string name="title_activity_style_fly_refresh">FlyRefreshHeader</string>
-
+    <string name="title_activity_week_task">WeekTask</string>>
     <string name="title_activity_example_basic">General Example</string>
     <string name="title_activity_example_assign_default">Global Default</string>
     <string name="title_activity_example_assign_xml">Specified In XML</string>
