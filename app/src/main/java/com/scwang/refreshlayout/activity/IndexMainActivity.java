@@ -158,23 +158,26 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
         });
     }
     public int getStars() throws AVException {
-        final String name = AVUser.getCurrentUser().getUsername();
-        mList.clear();
-        AVQuery<AVObject> avQuery =new AVQuery<>("Data_table");
-        mList = avQuery.find();
-        for (int i =0;i<mList.size();i++)
-        {
-            if (name.compareTo(mList.get(i).getString("Name"))==0)
+        if(AVUser.getCurrentUser().getUsername()==null)
+            stars =0;
+        else {
+            final String name = AVUser.getCurrentUser().getUsername();
+            mList.clear();
+            AVQuery<AVObject> avQuery =new AVQuery<>("Data_table");
+            mList = avQuery.find();
+            for (int i =0;i<mList.size();i++)
             {
-                avObject = mList.get(i);
-                break;
+                if (name.compareTo(mList.get(i).getString("Name"))==0)
+                {
+                    avObject = mList.get(i);
+                    break;
+                }
             }
+            if (avObject==null)
+                stars = 0;
+            else
+                stars = avObject.getInt("Scores");
         }
-        if (avObject==null)
-            stars = 0;
-        else
-            stars = avObject.getInt("Scores");
-
         return stars;
     }
 

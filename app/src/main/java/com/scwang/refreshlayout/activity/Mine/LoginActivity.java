@@ -109,7 +109,7 @@ public class LoginActivity extends Activity {
         public void done(AVUser avUser, AVException e) {
           if (e == null) {
             LoginActivity.this.finish();
-            //startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            //startActivity(new Intent(LoginActivity.this,.class));
           } else {
             showProgress(false);
             Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
