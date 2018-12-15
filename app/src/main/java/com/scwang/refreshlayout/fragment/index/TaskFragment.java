@@ -2,6 +2,7 @@ package com.scwang.refreshlayout.fragment.index;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,8 +17,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.GetCallback;
 import com.scwang.refreshlayout.R;
+import com.scwang.refreshlayout.activity.Award.MainActivity;
 import com.scwang.refreshlayout.activity.FragmentActivity;
 
 import com.scwang.refreshlayout.activity.MenuButton.SrcMenu;
@@ -29,7 +39,9 @@ import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.countDown.CountdownActivity;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static android.R.layout.simple_list_item_2;
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
@@ -37,6 +49,9 @@ import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 public class TaskFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private SrcMenu mSrcMenu;
+    private TextView textView;
+    private int stars;
+    private AVObject avObject;
 
     private enum Item {
         Task(R.string.index_practice_repast, DayTaskActivity.class),
@@ -49,13 +64,21 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
             this.name = name;
             this.clazz = clazz;
         }
-
     }
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_refresh_practive, container, false);
+        View view = inflater.inflate(R.layout.fragment_refresh_practive, container, false);
+        initView(view);
+        return view;
     }
+    private void initView(View view) {
+        String title= (String) getArguments().get("scores");
+        textView= (TextView) view.findViewById(R.id.scores_tv);
+        textView.setText(title);
+    }
+
 
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
@@ -77,8 +100,6 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
                 }
             });
         }
-
-        //
         mSrcMenu = (SrcMenu) root.findViewById(R.id.src_menu);
         mSrcMenu.setOnMenuItemClickListener(new SrcMenu.OnMenuItemClickListener() {
             @Override
@@ -99,7 +120,9 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
                 }
             }
         });
+
     }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -110,4 +133,5 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
             FragmentActivity.start(this, item.clazz);
         }
     }
+
 }

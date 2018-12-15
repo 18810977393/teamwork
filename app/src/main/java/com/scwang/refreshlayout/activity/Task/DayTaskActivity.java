@@ -180,6 +180,7 @@ public class DayTaskActivity extends AppCompatActivity {
         intent.putExtra("title",title);
         intent.putExtra("scores",scores);
         startActivityForResult(intent, 3);
+        initData();
     }
     @Override
     protected void onResume() {

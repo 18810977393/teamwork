@@ -23,6 +23,7 @@ import com.avos.avoscloud.AVUser;
 
 import com.avos.avoscloud.CloudQueryCallback;
 import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.GetCallback;
 import com.scwang.refreshlayout.R;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private List<AVObject> mList = new ArrayList<>();
     private Toolbar mToolbar;
     private RefreshLayout mRefreshLayout;
+    private AVObject avObject;
+    private int stars;
+    private List<AVObject> List = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                updateStars(position);
                                 if (mList.get(position).getString("Totaltime").compareTo("∞")==0)
                                 {
                                     String objectId = mList.get(position).getObjectId();
@@ -77,11 +82,11 @@ public class MainActivity extends AppCompatActivity {
                                     todo.put("times",a);
                                     // 保存到云端
                                     todo.saveInBackground();
-                                    initData();
                                 }
                                 else {
                                     delete(position);
                                 }
+                                initData();
                             }
                         });
                         dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -121,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         mList.clear();
+        List.clear();
         AVQuery<AVObject> avQuery = new AVQuery<>(AVUser.getCurrentUser().getUsername());
         avQuery.whereEqualTo("Type",1);
         avQuery.orderByDescending("createdAt");
@@ -130,6 +136,18 @@ public class MainActivity extends AppCompatActivity {
                 if (e == null) {
                     mList.addAll(list);
                     mRecyclerAdapter.notifyDataSetChanged();
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        });
+        AVQuery<AVObject> avQuery1 =new AVQuery<>("Data_table");
+        avQuery1.orderByDescending("createdAt");
+        avQuery1.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> list, AVException e) {
+                if (e == null) {
+                    List.addAll(list);
                 } else {
                     e.printStackTrace();
                 }
@@ -150,4 +168,23 @@ public class MainActivity extends AppCompatActivity {
                     }
                 },objectId);
         initData();
-    }}
+    }
+    private void updateStars(int position)
+    {
+        String name = AVUser.getCurrentUser().getUsername();
+        for (int i=0;i<List.size();i++)
+        {
+            if (name.compareTo(List.get(i).getString("Name"))==0)
+            {
+                avObject = List.get(i);
+                break;
+            }
+        }
+        stars = avObject.getInt("Scores");
+        int scores =Integer.parseInt(mList.get(position).getString("Scores"));
+        String id = avObject.getObjectId();
+        AVObject todo = AVObject.createWithoutData("Data_table",id);
+        todo.put("Scores",stars-scores);
+        todo.saveInBackground();
+    }
+}

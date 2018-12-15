@@ -13,10 +13,8 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
-import com.avos.avoscloud.FindCallback;
 import com.scwang.refreshlayout.R;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +25,9 @@ public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecycler
   private List<AVObject> mList;
   private OnRecyclerViewItemClickListener mOnItemClickListener = null;
   private OnRecyclerItemLongListener mOnItemLong = null;
+  private AVObject avObject;
+  private int stars;
+  private List<AVObject> List = new ArrayList<>();
   //define interface
   public interface OnRecyclerViewItemClickListener {
     void onItemClick(View view, int data);
@@ -67,6 +68,11 @@ public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecycler
       public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked)
         {
+          try {
+            updateStars(position);
+          } catch (AVException e) {
+            e.printStackTrace();
+          }
           AVObject avObject = mList.get(position);
           if (avObject.getInt("times")==Integer.valueOf(avObject.getString("Totaltime"))-1)
           {
@@ -131,5 +137,25 @@ public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecycler
       }
       return true;
     }
+  }
+  private void updateStars(int position) throws AVException {
+    List.clear();
+    AVQuery<AVObject> avQuery1 =new AVQuery<>("Data_table");
+    List = avQuery1.find();
+    String name = AVUser.getCurrentUser().getUsername();
+    for (int i=0;i<List.size();i++)
+    {
+      if (name.compareTo(List.get(i).getString("Name"))==0)
+      {
+        avObject = List.get(i);
+        break;
+      }
+    }
+    stars = avObject.getInt("Scores");
+    int scores =Integer.parseInt(mList.get(position).getString("Scores"));
+    String id = avObject.getObjectId();
+    AVObject todo = AVObject.createWithoutData("Data_table",id);
+    todo.put("Scores",stars+scores);
+    todo.saveInBackground();
   }
 }
