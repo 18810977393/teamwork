@@ -34,6 +34,7 @@ import com.scwang.refreshlayout.activity.MenuButton.SrcMenu;
 import com.scwang.refreshlayout.activity.Task.ProfilePracticeActivity;
 import com.scwang.refreshlayout.activity.Task.DayTaskActivity;
 
+import com.scwang.refreshlayout.activity.Task.WeekTaskActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.countDown.CountdownActivity;
@@ -55,6 +56,7 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
 
     private enum Item {
         Task(R.string.index_practice_repast, DayTaskActivity.class),
+        WeekTask(R.string.index_practice_repast, WeekTaskActivity.class),
         Profile(R.string.index_practice_profile, ProfilePracticeActivity.class),
         ;
         @StringRes
