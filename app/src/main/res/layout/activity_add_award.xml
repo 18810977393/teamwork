@@ -16,7 +16,7 @@
         android:layout_alignStart="@+id/noteTitle"
         android:layout_marginTop="135dp"
         android:ems="10"
-        android:hint="耗费成就点数" />
+        android:hint="消耗星星数" />
 
     <EditText
         android:id="@+id/noteTitle"

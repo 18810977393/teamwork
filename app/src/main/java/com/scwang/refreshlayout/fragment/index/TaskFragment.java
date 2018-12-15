@@ -56,8 +56,8 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
 
     private enum Item {
         Task(R.string.index_practice_repast, DayTaskActivity.class),
-        WeekTask(R.string.index_practice_repast, WeekTaskActivity.class),
-        Profile(R.string.index_practice_profile, ProfilePracticeActivity.class),
+        WeekTask(R.string.title_activity_week_task, WeekTaskActivity.class),
+        //Profile(R.string.index_practice_profile, ProfilePracticeActivity.class),
         ;
         @StringRes
         public int name;

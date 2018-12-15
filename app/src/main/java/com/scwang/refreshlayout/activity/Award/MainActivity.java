@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(View view, final int position) {
                         AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                         dialog.setTitle("满足奖励");
-                        dialog.setMessage("花费成就点数来满足奖励");
+                        dialog.setMessage("花费星星来满足奖励");
                         dialog.setCancelable(false);
                         dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override

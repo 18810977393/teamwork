@@ -18,10 +18,7 @@
     <string name="title_activity_practice_profile">个人中心</string>
     <string name="title_activity_practice_web_view">Github</string>
     <string name="title_activity_practice_feed_list">微博列表</string>
-    <string name="title_activity_practice_banner">滚动广告</string>
-    <string name="title_activity_practice_weibo">微博主页</string>
-    <string name="title_activity_practice_qq_browser">QQ浏览器</string>
-
+    <string name="title_activity_week_task">每周任务</string>>
     <string name="title_activity_style_wave_swipe">全屏水滴</string>
     <string name="title_activity_style_material">官方主题</string>
     <string name="title_activity_style_water_drop">苹果水滴</string>
@@ -73,11 +70,7 @@
     <string name="index_practice_repast">每日任务</string>
     <string name="index_practice_profile">个人中心-PureScrollMode-纯滚动模式</string>
     <string name="index_practice_web_view">网页引用-WebView</string>
-    <string name="index_practice_feed_list">微博列表-智能识别</string>
-    <string name="index_practice_weibo">微博主页-MultiPurposeListener</string>
-    <string name="index_practice_banner">滚动广告-Banner</string>
-    <string name="index_practice_qq_browser">QQ浏览器-模拟QQ浏览器内核提示</string>
-    <string name="index_practice_second_floor">二级刷新-仿淘宝二楼</string>
+
 
     <string name="item_style_theme_orange_abstract">更改为橙色主题颜色</string>
     <string name="item_style_theme_red_abstract">更改为红色主题颜色</string>
