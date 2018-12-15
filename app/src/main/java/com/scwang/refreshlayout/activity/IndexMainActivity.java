@@ -158,7 +158,7 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
         });
     }
     public int getStars() throws AVException {
-        if(AVUser.getCurrentUser().getUsername()==null)
+        if(AVUser.getCurrentUser()==null)
             stars =0;
         else {
             final String name = AVUser.getCurrentUser().getUsername();
