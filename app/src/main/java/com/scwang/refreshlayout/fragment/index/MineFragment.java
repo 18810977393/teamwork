@@ -21,6 +21,7 @@ import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.FragmentActivity;
 import com.scwang.refreshlayout.activity.Mine.BasicExampleActivity;
 import com.scwang.refreshlayout.activity.Mine.LoginActivity;
+import com.scwang.refreshlayout.activity.Task.ProfilePracticeActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.fragment.example.BottomSheetExampleFragment;
@@ -43,6 +44,7 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
         ViewPager(R.string.index_example_pager, ViewPagerExampleFragment.class),
         BottomSheet(R.string.index_example_bottom_sheet,BottomSheetExampleFragment.class),
         LogIn(R.string.index_example_bottom_sheet, LoginActivity.class),
+        Center(R.string.index_example_bottom_sheet, ProfilePracticeActivity.class),
         ;
         public int nameId;
         public Class<?> clazz;

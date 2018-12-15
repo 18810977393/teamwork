@@ -1,23 +1,17 @@
-package com.scwang.refreshlayout.activity.Task;
+package com.scwang.refreshlayout.fragment.index;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 
-import com.avos.avoscloud.AVUser;
 import com.scwang.refreshlayout.R;
-import com.scwang.refreshlayout.activity.Mine.LoginActivity;
-import com.scwang.refreshlayout.activity.Mine.RegisterActivity;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
 /**
  * 个人中心
  */
-public class ProfilePracticeActivity extends Activity {
+public class Center extends AppCompatActivity {
 
 
     @Override
@@ -38,16 +32,6 @@ public class ProfilePracticeActivity extends Activity {
         StatusBarUtil.setPaddingSmart(this, toolbar);
         StatusBarUtil.setPaddingSmart(this, findViewById(R.id.profile));
         StatusBarUtil.setPaddingSmart(this, findViewById(R.id.blurView));
-
-        Button mLogOutButton = (Button) findViewById(R.id.logout);
-        mLogOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AVUser.logOut();
-                startActivity(new Intent(ProfilePracticeActivity.this, LoginActivity.class));
-                ProfilePracticeActivity.this.finish();
-            }
-        });
     }
 
 }

@@ -37,10 +37,11 @@
                     app:civ_border_color="@android:color/white"
                     android:src="@mipmap/image_avatar_3"/>
 
-                <TextView  style="@style/AppTheme.Label.Title.Large"
+                <TextView
+                    style="@style/AppTheme.Label.Title.Large"
                     android:layout_marginTop="@dimen/padding_common"
-                    android:textColor="@android:color/white"
-                    android:text="Kanye West"/>
+                    android:text="Kanye West"
+                    android:textColor="@android:color/white" />
 
                 <TextView  style="@style/AppTheme.Label.Discription"
                     android:layout_marginTop="@dimen/padding_common"
@@ -86,7 +87,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:text="Show My Floder"/>
+                    android:text="账号"/>
             </LinearLayout>
 
             <LinearLayout
@@ -109,11 +110,13 @@
                         android:contentDescription="@string/app_name"
                         app:srcCompat="@drawable/ic_fly_refresh_poll"/>
                 </com.flyco.roundview.RoundFrameLayout>
-                <TextView style="@style/AppTheme.Label.Title"
+
+                <TextView
+                    style="@style/AppTheme.Label.Title"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:text="Show My Poll"/>
+                    android:text="个性签名" />
             </LinearLayout>
 
             <LinearLayout
@@ -136,11 +139,13 @@
                         android:contentDescription="@string/app_name"
                         app:srcCompat="@drawable/ic_fly_refresh_smartphone"/>
                 </com.flyco.roundview.RoundFrameLayout>
-                <TextView style="@style/AppTheme.Label.Title"
+
+                <TextView
+                    style="@style/AppTheme.Label.Title"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:text="Show My Phoe"/>
+                    android:text="版本号" />
             </LinearLayout>
 
             <LinearLayout
@@ -163,11 +168,16 @@
                         android:contentDescription="@string/app_name"
                         app:srcCompat="@drawable/ic_fly_refresh_send"/>
                 </com.flyco.roundview.RoundFrameLayout>
-                <TextView style="@style/AppTheme.Label.Title"
+
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="62dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="13dp"
                     android:layout_marginRight="30dp"
-                    android:text="Show My Idea"/>
+                    android:background="#00000000"
+                    android:text="注销" />
             </LinearLayout>
 
         </LinearLayout>
