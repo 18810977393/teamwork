@@ -29,6 +29,8 @@ public class RegisterActivity extends AppCompatActivity {
   private EditText mPasswordView;
   private View mRegisterFormView;
 
+
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -116,6 +118,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
       });
     }
+
   }
 
   private boolean isusernameValid(String username) {
