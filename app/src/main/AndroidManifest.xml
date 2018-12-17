@@ -101,7 +101,18 @@
         <activity android:name=".activity.Task.ModifyDayTaskActivity" />
         <activity android:name=".activity.Task.addWeekTaskActivity" />
         <activity android:name=".activity.Task.WeekTaskActivity" />
-        <activity android:name=".activity.Task.ModifyWeekTaskActivity"></activity>
+        <activity android:name=".activity.Task.ModifyWeekTaskActivity" />
+
+        <receiver android:name=".activity.Task.AlarmReceiver" />
+
+        <service
+            android:name=".activity.Task.LongRunningService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".activity.Task.addTaskActivity" />
+        <activity android:name=".activity.Task.TaskActivity" />
+        <activity android:name=".activity.Task.ModifyTaskActivity"></activity>
     </application>
 
 </manifest>
