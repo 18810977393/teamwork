@@ -2,7 +2,6 @@ package com.scwang.refreshlayout.fragment.index;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,18 +19,12 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.AVUser;
-import com.avos.avoscloud.FindCallback;
-import com.avos.avoscloud.GetCallback;
+
 import com.scwang.refreshlayout.R;
-import com.scwang.refreshlayout.activity.Award.MainActivity;
+
 import com.scwang.refreshlayout.activity.FragmentActivity;
 
 import com.scwang.refreshlayout.activity.MenuButton.SrcMenu;
-import com.scwang.refreshlayout.activity.Task.ProfilePracticeActivity;
 import com.scwang.refreshlayout.activity.Task.DayTaskActivity;
 
 import com.scwang.refreshlayout.activity.Task.TaskActivity;
@@ -40,10 +33,8 @@ import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.countDown.CountdownActivity;
 import com.scwang.refreshlayout.util.StatusBarUtil;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
 
 import static android.R.layout.simple_list_item_2;
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
@@ -52,8 +43,6 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
 
     private SrcMenu mSrcMenu;
     private TextView textView;
-    private int stars;
-    private AVObject avObject;
 
     private enum Item {
         DayTask(R.string.index_practice_repast, DayTaskActivity.class),

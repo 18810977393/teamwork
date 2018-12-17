@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.TextView;
 
 import com.scwang.refreshlayout.R;
 
@@ -23,6 +24,7 @@ import com.scwang.refreshlayout.activity.Award.ClassicsStyleActivity;
 import com.scwang.refreshlayout.activity.Award.FunGameBattleCityStyleActivity;
 import com.scwang.refreshlayout.activity.Award.FunGameHitBlockStyleActivity;
 import com.scwang.refreshlayout.activity.Award.MainActivity;
+import com.scwang.refreshlayout.activity.MenuButton.SrcMenu;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.util.StatusBarUtil;
@@ -45,6 +47,7 @@ import static com.scwang.refreshlayout.R.id.recyclerView;
  */
 public class AwardFragment extends Fragment implements AdapterView.OnItemClickListener {
 
+    private TextView textView;
     private enum Item {
 
         Classic(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
@@ -59,12 +62,18 @@ public class AwardFragment extends Fragment implements AdapterView.OnItemClickLi
             this.nameId = nameId;
             this.clazz = clazz;
         }
-
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_refresh_styles, container, false);
+        View view = inflater.inflate(R.layout.fragment_refresh_styles, container, false);
+        initView(view);
+        return view;
+    }
+    private void initView(View view) {
+        String title= (String) getArguments().get("scores");
+        textView= (TextView) view.findViewById(R.id.scores_tv2);
+        textView.setText(title);
     }
 
     @Override

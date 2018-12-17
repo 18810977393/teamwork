@@ -55,28 +55,12 @@
             android:label="addAward"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.Mine.BasicExampleActivity"
-            android:label="@string/title_activity_example_basic"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Mine.AssignDefaultExampleActivity"
-            android:label="@string/title_activity_example_assign_default"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Mine.AssignXmlExampleActivity"
-            android:label="@string/title_activity_example_assign_xml"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.Mine.LoginActivity"
             android:label="@string/title_activity_example_assign_xml"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.Mine.RegisterActivity"
             android:label="@string/title_activity_example_assign_xml"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Mine.AssignCodeExampleActivity"
-            android:label="@string/title_activity_example_assign_code"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.Task.DayTaskActivity"
@@ -89,10 +73,6 @@
         <activity
             android:name=".activity.Task.BannerPracticeActivity"
             android:label="@string/title_activity_practice_banner"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Mine.SnapHelperExampleActivity"
-            android:label="@string/title_activity_example_snap_helper"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.IndexMainActivity"
