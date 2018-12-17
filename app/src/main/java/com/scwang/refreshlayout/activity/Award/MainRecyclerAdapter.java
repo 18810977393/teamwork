@@ -75,7 +75,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     private OnRecyclerItemLongListener mOnItemLong = null;
     public MainViewHolder(View itemView,OnRecyclerViewItemClickListener mListener,OnRecyclerItemLongListener longListener) {
       super(itemView);
-      Title = (TextView) itemView.findViewById(R.id.Title);
+      Title = (TextView) itemView.findViewById(R.id.title);
       scores = (TextView) itemView.findViewById(R.id.scores);
       times = (TextView) itemView.findViewById(R.id.times);
       this.mOnItemClickListener = mListener;

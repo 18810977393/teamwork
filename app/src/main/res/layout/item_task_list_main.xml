@@ -32,7 +32,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/Title"
+                    android:id="@+id/title"
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
@@ -42,8 +42,8 @@
                     android:id="@+id/times"
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/Title"
-                    android:layout_below="@+id/Title"
+                    android:layout_alignLeft="@+id/title"
+                    android:layout_below="@+id/title"
                     android:layout_marginRight="134dp"
                     android:layout_marginTop="5dp"
                     android:layout_toLeftOf="@+id/scores"

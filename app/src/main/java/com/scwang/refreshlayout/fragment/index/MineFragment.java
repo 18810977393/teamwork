@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.FragmentActivity;
 import com.scwang.refreshlayout.activity.Mine.LoginActivity;
+import com.scwang.refreshlayout.activity.Mine.RankingActivity;
 import com.scwang.refreshlayout.activity.Task.ProfilePracticeActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
@@ -39,6 +40,7 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
     private enum Item {
         LogIn(R.string.index_example_login, LoginActivity.class),
         Center(R.string.index_example_center, ProfilePracticeActivity.class),
+        Ranking(R.string.index_example_rank, RankingActivity.class),
         ;
         public int nameId;
         public Class<?> clazz;

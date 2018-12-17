@@ -79,8 +79,8 @@
         <activity android:name=".activity.Task.WeekTaskActivity" />
         <activity android:name=".activity.Task.ModifyWeekTaskActivity" />
 
-        <receiver android:name=".activity.Task.AlarmReceiver"/>
-        <receiver android:name=".activity.Task.WeekAlarmReceiver"/>
+        <receiver android:name=".activity.Task.AlarmReceiver" />
+        <receiver android:name=".activity.Task.WeekAlarmReceiver" />
 
         <service
             android:name=".activity.Task.LongRunningService"
@@ -89,7 +89,8 @@
 
         <activity android:name=".activity.Task.addTaskActivity" />
         <activity android:name=".activity.Task.TaskActivity" />
-        <activity android:name=".activity.Task.ModifyTaskActivity"></activity>
+        <activity android:name=".activity.Task.ModifyTaskActivity" />
+        <activity android:name=".activity.Mine.RankingActivity"></activity>
     </application>
 
 </manifest>

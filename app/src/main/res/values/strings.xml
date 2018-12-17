@@ -80,6 +80,7 @@
     <string name="index_example_level">The usage of three level refresh</string>
     <string name="index_example_login">登录界面</string>
     <string name="index_example_center">个人中心</string>
+    <string name="index_example_rank">排行榜</string>
     <string name="item_style_theme_orange_abstract">Change theme to orange color</string>
     <string name="item_style_theme_red_abstract">Change theme to red color</string>
     <string name="item_style_theme_green_abstract">Change theme to green color</string>

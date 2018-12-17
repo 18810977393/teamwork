@@ -17,9 +17,6 @@ import com.scwang.refreshlayout.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by BinaryHB on 11/24/15.
- */
 public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecyclerAdapter.MainViewHolder> {
   private Context mContext;
   private List<AVObject> mList;
@@ -112,7 +109,7 @@ public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecycler
     private OnRecyclerItemLongListener mOnItemLong = null;
     public MainViewHolder(View itemView,OnRecyclerViewItemClickListener mListener,OnRecyclerItemLongListener longListener) {
       super(itemView);
-      Title = (TextView) itemView.findViewById(R.id.Title);
+      Title = (TextView) itemView.findViewById(R.id.title);
       scores = (TextView) itemView.findViewById(R.id.scores);
       times = (TextView) itemView.findViewById(R.id.times);
       checkBox = (CheckBox)itemView.findViewById(R.id.checkbox);

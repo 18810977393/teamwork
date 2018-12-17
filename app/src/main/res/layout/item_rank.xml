@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -21,22 +22,13 @@
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/times"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/title"
-                android:layout_below="@+id/title"
-                android:layout_marginRight="134dp"
-                android:layout_marginTop="5dp"
-                android:layout_toLeftOf="@+id/scores"
-                android:textColor="@android:color/holo_blue_light"
-                android:textSize="14sp" />
+                android:layout_width="229dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:textSize="24sp"
+                tools:textColor="@android:color/holo_orange_light" />
 
             <TextView
                 android:id="@+id/scores"
@@ -45,7 +37,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:textColor="@android:color/holo_orange_dark"
-                android:textSize="16sp" />
+                android:textSize="24sp" />
         </RelativeLayout>
 
     </LinearLayout>
