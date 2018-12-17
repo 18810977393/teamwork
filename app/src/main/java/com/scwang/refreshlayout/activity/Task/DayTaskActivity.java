@@ -2,8 +2,10 @@ package com.scwang.refreshlayout.activity.Task;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +33,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-import java.util.TimeZone;
 
 public class DayTaskActivity extends AppCompatActivity {
 
@@ -42,9 +43,30 @@ public class DayTaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice_repast);
-        Intent intent = new Intent(this,LongRunningService.class);
-        startService(intent);
+        StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+//        Intent intent = new Intent(this,LongRunningService.class);
+//        startService(intent);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(DayTaskActivity.this,
+                AlarmReceiver.class);
+        intent.setAction("action");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                DayTaskActivity.this,0, intent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+        Calendar calendar = Calendar.getInstance();
+        long currentTime = calendar.getTimeInMillis();
+        calendar.set(calendar.HOUR_OF_DAY,19);
+        calendar.set(calendar.MINUTE,16);
+        calendar.set(calendar.SECOND,0);
 
+        if (currentTime > calendar.getTimeInMillis()) {
+            calendar.add(Calendar.DATE, 1);
+        }
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                calendar.getTimeInMillis(), 1000 * 60 * 60 * 24,
+                pendingIntent);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

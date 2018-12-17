@@ -76,7 +76,7 @@ public class LoginActivity extends Activity {
     });
 
     mLoginFormView = findViewById(R.id.login_form);
-
+    mProgressView = findViewById(R.id.login_progress);
   }
 
   private void attemptLogin() {

@@ -78,6 +78,7 @@ public class DayTaskRecyclerAdapter extends RecyclerView.Adapter<DayTaskRecycler
           {
             String objectId = avObject.getObjectId();
             AVObject todo = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), objectId);
+            todo.put("times",0);
             todo.put("status",false);
             // 保存到云端
             todo.saveInBackground();

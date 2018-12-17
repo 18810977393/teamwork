@@ -13,7 +13,8 @@
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
         android:background="@android:color/white"
         app:srlPrimaryColor="@color/colorPrimary"
         app:srlAccentColor="@color/colorBackgroundDark"
@@ -29,9 +30,43 @@
             android:layout_height="match_parent"
             android:overScrollMode="never"
             tools:listitem="@android:layout/simple_list_item_2"/>
-        <com.scwang.smartrefresh.header.TaurusHeader
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="6"
+            android:layout_height="match_parent">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/heart_iv2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom|end"
+                android:src="@mipmap/five_star" />
+
+            <TextView
+                android:id="@+id/scores_tv2"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:gravity="right"
+                android:textColor="#1559e1"
+                android:textSize="24dp" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 </LinearLayout>
