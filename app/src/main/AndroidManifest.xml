@@ -103,7 +103,8 @@
         <activity android:name=".activity.Task.WeekTaskActivity" />
         <activity android:name=".activity.Task.ModifyWeekTaskActivity" />
 
-        <receiver android:name=".activity.Task.AlarmReceiver" />
+        <receiver android:name=".activity.Task.AlarmReceiver"/>
+
 
         <service
             android:name=".activity.Task.LongRunningService"

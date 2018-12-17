@@ -1,5 +1,9 @@
 package com.scwang.refreshlayout.activity.Task;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -27,17 +31,37 @@ import com.scwang.smartrefresh.layout.util.DensityUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 public class WeekTaskActivity extends AppCompatActivity {
     private DayTaskRecyclerAdapter mRecyclerAdapter;
     private static boolean isFirstEnter = true;
     private List<AVObject> mList = new ArrayList<>();
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_task);
+        Calendar calendar = Calendar.getInstance();
+        long currentTime = calendar.getTimeInMillis();
+        calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONDAY), calendar.get(Calendar.DAY_OF_MONTH),
+                0, 0,0);
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 
+        if (currentTime > calendar.getTimeInMillis()) {
+            calendar.add(Calendar.DATE, 1);
+        }
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(WeekTaskActivity.this,
+                WeekAlarmReceiver.class);
+        intent.setAction("action");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                WeekTaskActivity.this,0, intent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                calendar.getTimeInMillis(), 1000 * 60 * 60 * 24 * 7,
+                pendingIntent);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

@@ -12,7 +12,7 @@ import com.avos.avoscloud.AVUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlarmReceiver extends BroadcastReceiver {
+public class WeekAlarmReceiver extends BroadcastReceiver {
     private List<AVObject> mList = new ArrayList<>();
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -25,7 +25,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             }
             for (int i=0;i<mList.size();i++)
             {
-                if (mList.get(i).getInt("Type")==2) {
+                if (mList.get(i).getInt("Type")==3) {
                     String id = mList.get(i).getObjectId();
                     AVObject avObject = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), id);
                     avObject.put("times",0);

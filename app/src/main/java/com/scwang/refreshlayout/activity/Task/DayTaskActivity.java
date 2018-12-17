@@ -56,8 +56,8 @@ public class DayTaskActivity extends AppCompatActivity {
                 PendingIntent.FLAG_CANCEL_CURRENT);
         Calendar calendar = Calendar.getInstance();
         long currentTime = calendar.getTimeInMillis();
-        calendar.set(calendar.HOUR_OF_DAY,19);
-        calendar.set(calendar.MINUTE,16);
+        calendar.set(calendar.HOUR_OF_DAY,23);
+        calendar.set(calendar.MINUTE,59);
         calendar.set(calendar.SECOND,0);
 
         if (currentTime > calendar.getTimeInMillis()) {
