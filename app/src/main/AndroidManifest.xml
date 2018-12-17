@@ -71,10 +71,6 @@
             android:label="@string/title_activity_practice_profile"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.Task.BannerPracticeActivity"
-            android:label="@string/title_activity_practice_banner"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.IndexMainActivity"
             android:label="@string/title_activity_index_main" />
         <activity android:name=".activity.Task.addDayTaskActivity" />
