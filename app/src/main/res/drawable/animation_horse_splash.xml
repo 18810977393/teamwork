@@ -3,386 +3,391 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot = "false">
     <item
-        android:drawable="@drawable/h_0000"
+        android:drawable="@drawable/h_0000_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0001"
+        android:drawable="@drawable/h_0001_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0002"
+        android:drawable="@drawable/h_0002_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0003"
+        android:drawable="@drawable/h_0003_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0004"
+        android:drawable="@drawable/h_0004_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0005"
+        android:drawable="@drawable/h_0005_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0006"
+        android:drawable="@drawable/h_0006_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0007"
+        android:drawable="@drawable/h_0007_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0008"
+        android:drawable="@drawable/h_0008_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0009"
+        android:drawable="@drawable/h_0009_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0010"
+        android:drawable="@drawable/h_0010_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0011"
+        android:drawable="@drawable/h_0011_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0012"
+        android:drawable="@drawable/h_0012_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0013"
+        android:drawable="@drawable/h_0013_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0014"
+        android:drawable="@drawable/h_0014_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0015"
+        android:drawable="@drawable/h_0015_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0016"
+        android:drawable="@drawable/h_0016_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0017"
+        android:drawable="@drawable/h_0017_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0018"
+        android:drawable="@drawable/h_0018_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0019"
+        android:drawable="@drawable/h_0019_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0020"
+        android:drawable="@drawable/h_0020_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0021"
+        android:drawable="@drawable/h_0021_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0022"
+        android:drawable="@drawable/h_0022_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0023"
+        android:drawable="@drawable/h_0023_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0024"
-        android:duration="40"/>
-
-
-    <item
-        android:drawable="@drawable/h_0000"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0001"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0002"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0003"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0004"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0005"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0006"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0007"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0008"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0009"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0010"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0011"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0012"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0013"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0014"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0015"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0016"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0017"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0018"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0019"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0020"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0021"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0022"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0023"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0024"
-        android:duration="40"/>
-
-    <item
-        android:drawable="@drawable/h_0000"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0001"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0002"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0003"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0004"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0005"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0006"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0007"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0008"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0009"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0010"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0011"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0012"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0013"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0014"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0015"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0016"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0017"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0018"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0019"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0020"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0021"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0022"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0023"
-        android:duration="40"/>
-    <item
-        android:drawable="@drawable/h_0024"
+        android:drawable="@drawable/h_0024_ys"
         android:duration="40"/>
 
 
     <item
-        android:drawable="@drawable/h_0000"
+        android:drawable="@drawable/h_0000_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0001"
+        android:drawable="@drawable/h_0001_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0002"
+        android:drawable="@drawable/h_0002_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0003"
+        android:drawable="@drawable/h_0003_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0004"
+        android:drawable="@drawable/h_0004_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0005"
+        android:drawable="@drawable/h_0005_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0006"
+        android:drawable="@drawable/h_0006_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0007"
+        android:drawable="@drawable/h_0007_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0008"
+        android:drawable="@drawable/h_0008_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0009"
+        android:drawable="@drawable/h_0009_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0010"
+        android:drawable="@drawable/h_0010_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0011"
+        android:drawable="@drawable/h_0011_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0012"
+        android:drawable="@drawable/h_0012_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0013"
+        android:drawable="@drawable/h_0013_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0014"
+        android:drawable="@drawable/h_0014_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0015"
+        android:drawable="@drawable/h_0015_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0016"
+        android:drawable="@drawable/h_0016_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0017"
+        android:drawable="@drawable/h_0017_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0018"
+        android:drawable="@drawable/h_0018_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0019"
+        android:drawable="@drawable/h_0019_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0020"
+        android:drawable="@drawable/h_0020_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0021"
+        android:drawable="@drawable/h_0021_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0022"
+        android:drawable="@drawable/h_0022_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0023"
+        android:drawable="@drawable/h_0023_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0024"
+        android:drawable="@drawable/h_0024_ys"
+        android:duration="40"/>
+
+    <item
+        android:drawable="@drawable/h_0000_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0001_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0002_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0003_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0004_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0005_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0006_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0007_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0008_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0009_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0010_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0011_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0012_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0013_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0014_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0015_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0016_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0017_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0018_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0019_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0020_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0021_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0022_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0023_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0024_ys"
         android:duration="40"/>
 
 
     <item
-        android:drawable="@drawable/h_0000"
+        android:drawable="@drawable/h_0000_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0001"
+        android:drawable="@drawable/h_0001_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0002"
+        android:drawable="@drawable/h_0002_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0003"
+        android:drawable="@drawable/h_0003_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0004"
+        android:drawable="@drawable/h_0004_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0005"
+        android:drawable="@drawable/h_0005_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0006"
+        android:drawable="@drawable/h_0006_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0007"
+        android:drawable="@drawable/h_0007_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0008"
+        android:drawable="@drawable/h_0008_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0009"
+        android:drawable="@drawable/h_0009_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0010"
+        android:drawable="@drawable/h_0010_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0011"
+        android:drawable="@drawable/h_0011_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0012"
+        android:drawable="@drawable/h_0012_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0013"
+        android:drawable="@drawable/h_0013_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0014"
+        android:drawable="@drawable/h_0014_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0015"
+        android:drawable="@drawable/h_0015_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0016"
+        android:drawable="@drawable/h_0016_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0017"
+        android:drawable="@drawable/h_0017_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0018"
+        android:drawable="@drawable/h_0018_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0019"
+        android:drawable="@drawable/h_0019_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0020"
+        android:drawable="@drawable/h_0020_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0021"
+        android:drawable="@drawable/h_0021_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0022"
+        android:drawable="@drawable/h_0022_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0023"
+        android:drawable="@drawable/h_0023_ys"
         android:duration="40"/>
     <item
-        android:drawable="@drawable/h_0024"
+        android:drawable="@drawable/h_0024_ys"
         android:duration="40"/>
+
+
+    <item
+        android:drawable="@drawable/h_0000_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0001_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0002_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0003_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0004_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0005_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0006_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0007_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0008_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0009_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0010_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0011_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0012_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0013_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0014_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0015_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0016_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0017_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0018_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0019_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0020_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0021_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0022_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0023_ys"
+        android:duration="40"/>
+    <item
+        android:drawable="@drawable/h_0024_ys"
+        android:duration="40"/>
+
+
+
+
+
 
 </animation-list>
