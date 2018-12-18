@@ -98,13 +98,13 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
             public void onClick(View view, int position) {
                 switch (position){
                     case 1:
-                        //
+                        startActivity(new Intent(getContext(),DayTaskActivity.class));
                         break;
                     case 2:
-                       //
+                        startActivity(new Intent(getContext(),WeekTaskActivity.class));
                         break;
                     case 3:
-//                        Toast.makeText(TaskFragment.this,"",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getContext(),TaskActivity.class));
                         break;
                     case 4:
                         startActivity(new Intent(getContext(),CountdownActivity.class));

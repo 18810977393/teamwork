@@ -24,6 +24,7 @@ import com.scwang.refreshlayout.activity.Mine.RankingActivity;
 import com.scwang.refreshlayout.activity.Task.ProfilePracticeActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
+import com.scwang.refreshlayout.countDown.CountdownActivity;
 import com.scwang.refreshlayout.util.StatusBarUtil;
 
 import java.util.Arrays;
@@ -41,6 +42,7 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
         LogIn(R.string.index_example_login, LoginActivity.class),
         Center(R.string.index_example_center, ProfilePracticeActivity.class),
         Ranking(R.string.index_example_rank, RankingActivity.class),
+        Clock(R.string.index_example_clock, CountdownActivity.class),
         ;
         public int nameId;
         public Class<?> clazz;

@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.IndexMainActivity;
+import com.scwang.refreshlayout.activity.Mine.LoginActivity;
 
 public class ContentFragment extends Fragment {
     private int[] bgp = {R.drawable.begin1,R.drawable.begin2,R.drawable.begin3};

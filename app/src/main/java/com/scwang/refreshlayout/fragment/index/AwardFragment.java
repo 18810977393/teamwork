@@ -51,8 +51,8 @@ public class AwardFragment extends Fragment implements AdapterView.OnItemClickLi
     private enum Item {
 
         Classic(R.string.title_activity_style_classics, ClassicsStyleActivity.class),
-        小游戏1(R.string.title_activity_style_hit_block, FunGameHitBlockStyleActivity.class),
-        小游戏2(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
+        Game_1(R.string.title_activity_style_hit_block, FunGameHitBlockStyleActivity.class),
+        Game_2(R.string.title_activity_style_battle_city, FunGameBattleCityStyleActivity.class),
         Award(R.string.title_activity_style_delivery, MainActivity.class),
 
         ;
