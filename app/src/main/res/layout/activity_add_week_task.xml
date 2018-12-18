@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="29dp"
                 android:background="#00000000"
+
                 android:onClick="addNote"
                 android:text="添加"
                 android:layout_alignParentLeft="true"

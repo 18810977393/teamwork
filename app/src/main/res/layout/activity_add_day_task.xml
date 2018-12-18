@@ -34,6 +34,7 @@
                 android:layout_width="356dp"
                 android:layout_height="61dp"
                 android:singleLine="true"
+
                 android:layout_margin="10dp"
                 android:layout_marginTop="65dp"
                 android:hint="标题" />
