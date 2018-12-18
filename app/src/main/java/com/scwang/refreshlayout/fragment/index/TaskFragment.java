@@ -48,6 +48,7 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
         DayTask(R.string.index_practice_repast, DayTaskActivity.class),
         WeekTask(R.string.title_activity_week_task, WeekTaskActivity.class),
         Task(R.string.title_activity_normalActivity, TaskActivity.class),
+        Absorption(R.string.index_task_countdown,CountdownActivity.class)
         ;
         @StringRes
         public int name;

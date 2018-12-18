@@ -108,7 +108,7 @@
 
             <TextView
                 android:id="@+id/scores_tv"
-                android:layout_width="50dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:gravity="right"

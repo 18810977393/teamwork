@@ -67,12 +67,12 @@ public class AwardFragment extends Fragment implements AdapterView.OnItemClickLi
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_refresh_styles, container, false);
+        textView= (TextView) view.findViewById(R.id.scores_tv2);
         initView(view);
         return view;
     }
     private void initView(View view) {
         String title= (String) getArguments().get("scores");
-        textView= (TextView) view.findViewById(R.id.scores_tv2);
         textView.setText(title);
     }
 
@@ -81,7 +81,7 @@ public class AwardFragment extends Fragment implements AdapterView.OnItemClickLi
         super.onViewCreated(root, savedInstanceState);
         StatusBarUtil.setPaddingSmart(getContext(), root.findViewById(R.id.toolbar));
 
-        View view = root.findViewById(recyclerView);
+        final View view = root.findViewById(recyclerView);
         if (view instanceof RecyclerView) {
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -124,6 +124,7 @@ public class AwardFragment extends Fragment implements AdapterView.OnItemClickLi
             refreshLayout.setOnRefreshListener(new OnRefreshListener() {
                 @Override
                 public void onRefresh(@NonNull final RefreshLayout refreshLayout) {
+                    initView(view);
                     refreshLayout.finishRefresh(3000);
                     refreshLayout.getLayout().postDelayed(new Runnable() {
                         @Override

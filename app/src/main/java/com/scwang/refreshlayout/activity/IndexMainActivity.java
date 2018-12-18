@@ -40,7 +40,7 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
     private int stars;
     private AVObject avObject;
     private List<AVObject> mList = new ArrayList<>();
-
+    private Bundle bundle;
     private enum TabFragment {
         任务(R.id.navigation_practice, TaskFragment.class),
         奖励(R.id.navigation_style, AwardFragment.class),
@@ -103,7 +103,7 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
             @Override
             public Fragment getItem(int position) {
                 Fragment fragment = TabFragment.values()[position].fragment();
-                Bundle bundle = new Bundle();
+                bundle = new Bundle();
                 try {
                     bundle.putString("scores", String.valueOf(getStars()));
                 } catch (AVException e) {
@@ -134,6 +134,11 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
     protected void onResume() {
         super.onResume();
         AVAnalytics.onResume(this);
+        try {
+            getStars();
+        } catch (AVException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     protected void onPause() {
@@ -147,22 +152,7 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
         ((ViewPager)findViewById(R.id.content)).setCurrentItem(TabFragment.from(item.getItemId()).ordinal());
         return true;
     }
-    private void initData()
-    {
-        mList.clear();
-        AVQuery<AVObject> avQuery1 =new AVQuery<>("Data_table");
-        avQuery1.orderByDescending("createdAt");
-        avQuery1.findInBackground(new FindCallback<AVObject>() {
-            @Override
-            public void done(List<AVObject> list, AVException e) {
-                if (e == null) {
-                    mList.addAll(list);
-                } else {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+
     public int getStars() throws AVException {
         if(AVUser.getCurrentUser()==null)
             stars =0;

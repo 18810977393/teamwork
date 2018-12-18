@@ -90,8 +90,14 @@ public class LoginActivity extends Activity {
     View focusView = null;
 
     if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-      mPasswordView.setError("密码不少于4位");
+      mPasswordView.setError("密码不少于5位");
       focusView = mPasswordView;
+      cancel = true;
+    }
+    if (!isUsernameValid(username))
+    {
+      mUsernameView.setError("用户名只能包含字母、数字、下划线，不能以数字开头");
+      focusView = mUsernameView;
       cancel = true;
     }
 
@@ -125,6 +131,9 @@ public class LoginActivity extends Activity {
   private boolean isPasswordValid(String password) {
     //TODO: Replace this with your own logic
     return password.length() > 4;
+  }
+  public static boolean isUsernameValid(String str){
+    return str.matches("^[a-zA-Z][a-zA-Z0-9_]*$");
   }
 
   /**

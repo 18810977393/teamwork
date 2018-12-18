@@ -57,7 +57,8 @@
     <string name="fragment_example_three_level">Three Level Refresh</string>
     <string name="fragment_example_bottom_sheet">Bottom Sheet</string>
 
-    <string name="index_practice_repast">每天任务</string>
+    <string name="index_practice_repast">每日任务</string>
+    <string name="index_task_countdown">专注任务</string>
     <string name="index_practice_profile">Pure scroll mode</string>
     <string name="index_practice_web_view">Use WebView</string>
     <string name="index_practice_feed_list">Intelligent identification</string>

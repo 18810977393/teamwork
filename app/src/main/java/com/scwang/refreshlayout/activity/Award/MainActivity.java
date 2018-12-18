@@ -3,6 +3,7 @@ package com.scwang.refreshlayout.activity.Award;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,8 @@ import com.avos.avoscloud.FindCallback;
 import com.avos.avoscloud.GetCallback;
 import com.scwang.refreshlayout.R;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
+import com.scwang.smartrefresh.layout.util.DensityUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +113,25 @@ public class MainActivity extends AppCompatActivity {
         });
         mRecyclerView.setItemAnimator( new DefaultItemAnimator());
         mRefreshLayout = findViewById(R.id.refreshLayout);
+        mRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                initData();
+            }
+
+            @Override
+            public void onRefresh(@NonNull final RefreshLayout refreshLayout) {
+                refreshLayout.getLayout().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        initData();
+                        refreshLayout.finishRefresh();
+                        refreshLayout.setNoMoreData(false);//恢复上拉状态
+                    }
+                }, 2000);
+            }
+        });
+
     }
     @Override
     protected void onResume() {
