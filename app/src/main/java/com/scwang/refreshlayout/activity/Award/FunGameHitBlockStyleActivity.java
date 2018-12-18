@@ -89,7 +89,7 @@ public class FunGameHitBlockStyleActivity extends AppCompatActivity implements A
                         refreshLayout.finishRefresh();
                         refreshLayout.setNoMoreData(false);//恢复上拉状态
                     }
-                }, 2000);
+                }, 1000);
             }
         });
         View view = findViewById(R.id.recyclerView);
@@ -100,8 +100,8 @@ public class FunGameHitBlockStyleActivity extends AppCompatActivity implements A
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             List<Item> items = new ArrayList<>();
             items.addAll(Arrays.asList(Item.values()));
-            items.addAll(Arrays.asList(Item.values()));
-            items.addAll(Arrays.asList(Item.values()));
+//            items.addAll(Arrays.asList(Item.values()));
+//            items.addAll(Arrays.asList(Item.values()));
             recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(items, simple_list_item_2,this) {
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, Item model, int position) {

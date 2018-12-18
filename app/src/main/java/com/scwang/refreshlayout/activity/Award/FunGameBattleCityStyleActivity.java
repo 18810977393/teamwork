@@ -102,8 +102,8 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             List<Item> items = new ArrayList<>();
             items.addAll(Arrays.asList(Item.values()));
-            items.addAll(Arrays.asList(Item.values()));
-            items.addAll(Arrays.asList(Item.values()));
+//            items.addAll(Arrays.asList(Item.values()));
+//            items.addAll(Arrays.asList(Item.values()));
             recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(items, simple_list_item_2,this) {
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, Item model, int position) {

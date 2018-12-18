@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:padding="5px"
         android:scaleType="fitXY"
-        android:src="@drawable/animation_horse_splash"
+        android:src="@drawable/first_ys"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

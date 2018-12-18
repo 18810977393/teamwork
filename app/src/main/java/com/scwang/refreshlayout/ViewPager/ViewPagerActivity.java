@@ -44,27 +44,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         viewPager = (ViewPager)findViewById(R.id.vp_viewGuide);
         linearLayout = findViewById(R.id.ll_indicator);
 
-        judge();
         init();
-    }
-
-    private void judge() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                SharedPreferences setting = getSharedPreferences(SHARE_APP_TAG, 0);
-                Boolean user_first = setting.getBoolean("FIRST",true);
-                if(user_first){//第一次
-                    setting.edit().putBoolean("FIRST", false).commit();
-                    startActivity(new Intent(ViewPagerActivity.this ,
-                            LoginActivity.class));
-                }
-                else{//以后就没有引导页面了
-
-                }
-            }
-        },DELAY_TIME) ;
     }
 
     private void init() {
