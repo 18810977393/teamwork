@@ -116,16 +116,16 @@ public class FunGameHitBlockStyleActivity extends AppCompatActivity implements A
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (Item.values()[position]) {
-            case 忠诚:
+            case 守纪:
                 setThemeColor(R.color.colorPrimary, R.color.colorPrimaryDark);
                 break;
-            case 笃学:
+            case 严谨:
                 setThemeColor(android.R.color.holo_green_light, android.R.color.holo_green_dark);
                 break;
-            case 严谨:
+            case 笃学:
                 setThemeColor(android.R.color.holo_red_light, android.R.color.holo_red_dark);
                 break;
-            case 守纪:
+            case 忠诚:
                 setThemeColor(android.R.color.holo_orange_light, android.R.color.holo_orange_dark);
                 break;
         }
@@ -153,7 +153,7 @@ public class FunGameHitBlockStyleActivity extends AppCompatActivity implements A
             }
         }
         stars = avObject.getInt("Scores");
-        int scores = 5;
+        int scores = 10;
         String id = avObject.getObjectId();
         AVObject todo = AVObject.createWithoutData("Data_table",id);
         todo.put("Scores",stars-scores);
