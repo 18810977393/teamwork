@@ -118,19 +118,19 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (Item.values()[position]) {
-            case 努力到无能为力:
+            case 可别靠岸:
                 mRefreshLayout.setPrimaryColorsId(android.R.color.white, android.R.color.black);
                 break;
-            case 拼搏到感动自己:
+            case 努力到无能为力:
                 setThemeColor(R.color.colorPrimary, R.color.colorPrimaryDark);
                 break;
-            case 如果你是条船:
+            case 拼搏到感动自己:
                 setThemeColor(android.R.color.holo_green_light, android.R.color.holo_green_dark);
                 break;
-            case 漂泊就是你的命运:
+            case 如果你是条船:
                 setThemeColor(android.R.color.holo_red_light, android.R.color.holo_red_dark);
                 break;
-            case 可别靠岸:
+            case 漂泊就是你的命运:
                 setThemeColor(android.R.color.holo_orange_light, android.R.color.holo_orange_dark);
                 break;
         }
