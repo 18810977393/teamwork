@@ -3,6 +3,7 @@ package com.scwang.refreshlayout.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -35,12 +36,14 @@ import com.scwang.refreshlayout.util.StatusBarUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.avos.avoscloud.Messages.OpType.count;
+
 public class IndexMainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 
     private int stars;
     private AVObject avObject;
     private List<AVObject> mList = new ArrayList<>();
-    private Bundle bundle;
+    private Bundle bundle = new Bundle();
     private enum TabFragment {
         任务(R.id.navigation_practice, TaskFragment.class),
         奖励(R.id.navigation_style, AwardFragment.class),
@@ -84,6 +87,22 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
             }
         }
     }
+    private boolean run = false;
+
+    private final Handler handler = new Handler();
+
+    private final Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                bundle.putString("scores", String.valueOf(getStars()));
+            } catch (AVException e) {
+                e.printStackTrace();
+            }
+            handler.postDelayed(this, 1000 * 3);
+        }
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,12 +122,12 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
             @Override
             public Fragment getItem(int position) {
                 Fragment fragment = TabFragment.values()[position].fragment();
-                bundle = new Bundle();
                 try {
                     bundle.putString("scores", String.valueOf(getStars()));
                 } catch (AVException e) {
                     e.printStackTrace();
                 }
+                handler.postDelayed(runnable, 1000*3);
                 fragment.setArguments(bundle);
                 return fragment;
             }

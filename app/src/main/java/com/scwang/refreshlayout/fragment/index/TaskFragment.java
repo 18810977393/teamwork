@@ -33,6 +33,13 @@ import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.countDown.CountdownActivity;
 import com.scwang.refreshlayout.util.StatusBarUtil;
+import com.scwang.smartrefresh.header.FunGameBattleCityHeader;
+import com.scwang.smartrefresh.header.FunGameHitBlockHeader;
+import com.scwang.smartrefresh.layout.api.RefreshHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
 import java.util.Arrays;
 
 
@@ -63,12 +70,13 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_refresh_practive, container, false);
+        textView= (TextView) view.findViewById(R.id.scores_tv);
         initView(view);
         return view;
     }
     private void initView(View view) {
         String title= (String) getArguments().get("scores");
-        textView= (TextView) view.findViewById(R.id.scores_tv);
+
         textView.setText(title);
     }
 
@@ -78,9 +86,9 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
         super.onViewCreated(root, savedInstanceState);
         StatusBarUtil.setPaddingSmart(getContext(), root.findViewById(R.id.toolbar));
 
-        View view = root.findViewById(R.id.recyclerView);
-        if (view instanceof RecyclerView) {
-            RecyclerView recyclerView = (RecyclerView) view;
+        final View view1 = root.findViewById(R.id.recyclerView);
+        if (view1 instanceof RecyclerView) {
+            RecyclerView recyclerView = (RecyclerView) view1;
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), VERTICAL));
@@ -90,6 +98,28 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
                     holder.text(android.R.id.text1, model.name());
                     holder.text(android.R.id.text2, model.name);
                     holder.textColorId(android.R.id.text2, R.color.colorTextAssistant);
+                }
+            });
+        }
+        RefreshLayout refreshLayout = root.findViewById(R.id.refreshLayout);
+        if (refreshLayout != null) {
+            refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+                @Override
+                public void onRefresh(@NonNull final RefreshLayout refreshLayout) {
+                    initView(view1);
+                    refreshLayout.finishRefresh(3000);
+                    refreshLayout.getLayout().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RefreshHeader refreshHeader = refreshLayout.getRefreshHeader();
+                            if (refreshHeader instanceof FunGameHitBlockHeader) {
+                                refreshLayout.setRefreshHeader(new ClassicsHeader(getContext()));
+                            } else if(refreshHeader instanceof FunGameBattleCityHeader) {
+                                refreshLayout.setRefreshHeader(new FunGameHitBlockHeader(getContext()));
+                            }
+                            refreshLayout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
+                        }
+                    },4000);
                 }
             });
         }
