@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.IndexMainActivity;
 import com.scwang.refreshlayout.activity.Mine.LoginActivity;
-import com.scwang.refreshlayout.splash.SplashActivity;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +105,7 @@ public class ViewPagerActivity extends AppCompatActivity {
     private void initDot() {
         int width = 30;
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,width);
-        lp.setMargins(0,0,2*width,0);
+        lp.setMargins(15,15,15,15);
 
         for (int i = 0 ; i < 4 ; i++)
         {
