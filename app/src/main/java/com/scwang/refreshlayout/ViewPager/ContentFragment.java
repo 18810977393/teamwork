@@ -16,7 +16,7 @@ import com.scwang.refreshlayout.activity.IndexMainActivity;
 import com.scwang.refreshlayout.activity.Mine.LoginActivity;
 
 public class ContentFragment extends Fragment {
-    private int[] bgp = {R.drawable.begin1,R.drawable.begin2,R.drawable.begin3};
+    private int[] bgp = {R.drawable.raw_5_ys,R.drawable.raw_6_ys,R.drawable.raw_7_ys,R.drawable.raw_8_ys};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class ContentFragment extends Fragment {
             }
         });
 
-        btn.setVisibility(index == 2? View.VISIBLE:View.GONE);
+        btn.setVisibility(index == 3? View.VISIBLE:View.GONE);
 
         return view;
     }

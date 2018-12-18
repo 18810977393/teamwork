@@ -24,8 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Initiate.InitiateActivity" />
-        <activity android:name=".splash.SplashActivity">
+        <activity android:name=".Initiate.InitiateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

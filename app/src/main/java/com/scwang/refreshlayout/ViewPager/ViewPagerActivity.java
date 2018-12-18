@@ -39,7 +39,7 @@ public class ViewPagerActivity extends AppCompatActivity {
     }
 
     private void init() {
-        for (int i=0;i<3;i++){
+        for (int i=0;i<4;i++){
             ContentFragment fragment = new ContentFragment();
             Bundle bundle = new Bundle();
             bundle.putInt("index",i);
@@ -54,7 +54,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                for (int i = 0 ; i < 3 ; i++)
+                for (int i = 0 ; i < 4 ; i++)
                 {
                     linearLayout.getChildAt(i).setBackgroundResource(i==position ? R.drawable.dot_selected : R.drawable.dot_normal);
                 }
@@ -78,7 +78,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,width);
         lp.setMargins(0,0,2*width,0);
 
-        for (int i = 0 ; i < 3 ; i++)
+        for (int i = 0 ; i < 4 ; i++)
         {
             View view = new View(this) ;
             view.setId(i);
