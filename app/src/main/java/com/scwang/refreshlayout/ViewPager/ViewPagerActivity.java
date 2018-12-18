@@ -85,7 +85,7 @@ public class ViewPagerActivity extends AppCompatActivity {
     private void initDot() {
         int width = 30;
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,width);
-        lp.setMargins(15,15,15,15);
+        lp.setMargins(35,35,35,35);
 
         for (int i = 0 ; i < 4 ; i++)
         {
