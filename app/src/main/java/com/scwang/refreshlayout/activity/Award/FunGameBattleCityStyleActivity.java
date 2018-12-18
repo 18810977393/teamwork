@@ -34,11 +34,11 @@ import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 public class FunGameBattleCityStyleActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private enum Item {
-        默认主题(R.string.item_style_theme_default_abstract),
-        橙色主题(R.string.item_style_theme_orange_abstract),
-        红色主题(R.string.item_style_theme_red_abstract),
-        绿色主题(R.string.item_style_theme_green_abstract),
-        蓝色主题(R.string.item_style_theme_blue_abstract),
+        努力到无能为力(R.string.item_style_theme_default_abstract),
+        拼搏到感动自己(R.string.item_style_theme_orange_abstract),
+        如果你是条船(R.string.item_style_theme_red_abstract),
+        漂泊就是你的命运(R.string.item_style_theme_green_abstract),
+        可别靠岸(R.string.item_style_theme_blue_abstract),
         ;
         public int nameId;
         Item(@StringRes int nameId) {
@@ -118,19 +118,19 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (Item.values()[position]) {
-            case 默认主题:
+            case 努力到无能为力:
                 mRefreshLayout.setPrimaryColorsId(android.R.color.white, android.R.color.black);
                 break;
-            case 蓝色主题:
+            case 拼搏到感动自己:
                 setThemeColor(R.color.colorPrimary, R.color.colorPrimaryDark);
                 break;
-            case 绿色主题:
+            case 如果你是条船:
                 setThemeColor(android.R.color.holo_green_light, android.R.color.holo_green_dark);
                 break;
-            case 红色主题:
+            case 漂泊就是你的命运:
                 setThemeColor(android.R.color.holo_red_light, android.R.color.holo_red_dark);
                 break;
-            case 橙色主题:
+            case 可别靠岸:
                 setThemeColor(android.R.color.holo_orange_light, android.R.color.holo_orange_dark);
                 break;
         }

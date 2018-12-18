@@ -34,11 +34,10 @@ import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 public class FunGameHitBlockStyleActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private enum Item {
-        默认主题(R.string.item_style_theme_default_abstract),
-        橙色主题(R.string.item_style_theme_orange_abstract),
-        红色主题(R.string.item_style_theme_red_abstract),
-        绿色主题(R.string.item_style_theme_green_abstract),
-        蓝色主题(R.string.item_style_theme_blue_abstract),
+        忠诚(R.string.item_style_theme_orange_abstract),
+        笃学(R.string.item_style_theme_red_abstract),
+        严谨(R.string.item_style_theme_green_abstract),
+        守纪(R.string.item_style_theme_blue_abstract),
         ;
         public int nameId;
         Item(@StringRes int nameId) {
@@ -117,19 +116,16 @@ public class FunGameHitBlockStyleActivity extends AppCompatActivity implements A
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (Item.values()[position]) {
-            case 默认主题:
-                mRefreshLayout.setPrimaryColorsId(android.R.color.white, android.R.color.black);
-                break;
-            case 蓝色主题:
+            case 忠诚:
                 setThemeColor(R.color.colorPrimary, R.color.colorPrimaryDark);
                 break;
-            case 绿色主题:
+            case 笃学:
                 setThemeColor(android.R.color.holo_green_light, android.R.color.holo_green_dark);
                 break;
-            case 红色主题:
+            case 严谨:
                 setThemeColor(android.R.color.holo_red_light, android.R.color.holo_red_dark);
                 break;
-            case 橙色主题:
+            case 守纪:
                 setThemeColor(android.R.color.holo_orange_light, android.R.color.holo_orange_dark);
                 break;
         }
