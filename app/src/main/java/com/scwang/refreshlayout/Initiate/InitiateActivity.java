@@ -32,14 +32,14 @@ public class InitiateActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("whether_First_use",MODE_PRIVATE);
         whether_First_use = sharedPreferences.getBoolean("whether_First_use",true);
         Handler handler = new Handler();
-        handler.postDelayed(begin0,0000);
-        handler.postDelayed(begin1,1000);
-        handler.postDelayed(begin3,4000);
+//        handler.postDelayed(begin0,0000);
+        handler.postDelayed(begin1,0000);
+//        handler.postDelayed(begin3,4000);
         if (whether_First_use){
-            handler.postDelayed(begin4,6000);
+            handler.postDelayed(begin4,4000);
         }
         else {
-            handler.postDelayed(begin5,6000);
+            handler.postDelayed(begin5,4000);
         }
 
     }
@@ -89,6 +89,7 @@ public class InitiateActivity extends AppCompatActivity {
         @Override
         public void run() {
             try{
+                mediaPlayer.release();
                 imageView.setImageResource(0);
                 startActivity(new Intent(InitiateActivity.this, ViewPagerActivity.class));
                 finish();
@@ -105,6 +106,7 @@ public class InitiateActivity extends AppCompatActivity {
         @Override
         public void run() {
             try{
+                mediaPlayer.release();
                 imageView.setImageResource(0);
                 startActivity(new Intent(InitiateActivity.this, IndexMainActivity.class));
                 finish();

@@ -11,7 +11,12 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -42,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private AVObject avObject;
     private int stars;
     private List<AVObject> List = new ArrayList<>();
+    final int Menu_1 = Menu.FIRST;
+    final int Menu_2 = Menu.FIRST + 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,16 +108,29 @@ public class MainActivity extends AppCompatActivity {
         });
         mRecyclerAdapter.setOnItemLongClickListener(new MainRecyclerAdapter.OnRecyclerItemLongListener() {
             @Override
-            public void onItemLongClick(View view, int position) {
-                String objectId = mList.get(position).getObjectId();
-                AVObject todo = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), objectId);
-                todo.put("Title","see movie");
-                // 保存到云端
-                todo.saveInBackground();
-                Toast toast=Toast.makeText(getApplicationContext(), "长按", Toast.LENGTH_LONG);
-                toast.show();
+            public void onItemLongClick(View view, final int position) {
+                AlertDialog.Builder dialog  = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("删除奖励");
+                dialog.setMessage("确认删除该奖励");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       delete(position);
+                        initData();
+                        Toast toast=Toast.makeText(getApplicationContext(), "已删除", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                });
+                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {}
+                });
+                dialog.show();
+
             }
         });
+
         mRecyclerView.setItemAnimator( new DefaultItemAnimator());
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
@@ -131,8 +151,8 @@ public class MainActivity extends AppCompatActivity {
                 }, 2000);
             }
         });
-
     }
+
     @Override
     protected void onResume() {
         super.onResume();

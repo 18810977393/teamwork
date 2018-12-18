@@ -1,5 +1,7 @@
 package com.scwang.refreshlayout.activity.Task;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVCloudQueryResult;
@@ -72,6 +75,29 @@ public class TaskActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(View view, final int data) {
                     modify(data);
+                }
+            });
+            mRecyclerAdapter.setOnItemLongClickListener(new DayTaskRecyclerAdapter.OnRecyclerItemLongListener() {
+                @Override
+                public void onItemLongClick(View view, final int position) {
+                    AlertDialog.Builder dialog  = new AlertDialog.Builder(TaskActivity.this);
+                    dialog.setTitle("删除任务");
+                    dialog.setMessage("确认删除该任务");
+                    dialog.setCancelable(false);
+                    dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            delete(position);
+                            initData();
+                            Toast toast=Toast.makeText(getApplicationContext(), "已删除", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    });
+                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {}
+                    });
+                    dialog.show();
                 }
             });
 
