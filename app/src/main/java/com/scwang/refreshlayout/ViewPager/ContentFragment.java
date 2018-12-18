@@ -21,6 +21,9 @@ public class ContentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_content,null);
+        Button skip_index1 = (Button)view.findViewById(R.id.skip_index1);
+        Button skip_index2 = (Button)view.findViewById(R.id.skip_index2);
+        Button skip_index3 = (Button)view.findViewById(R.id.skip_index3);
         Button btn = (Button)view.findViewById(R.id.bt_joinBtn);
         RelativeLayout relativeLayout =(RelativeLayout) view.findViewById(R.id.rl_fgLayout);
 
@@ -33,7 +36,27 @@ public class ContentFragment extends Fragment {
                 startActivity(new Intent(getActivity(), IndexMainActivity.class));
             }
         });
-
+        skip_index1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), IndexMainActivity.class));
+            }
+        });
+        skip_index2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), IndexMainActivity.class));
+            }
+        });
+        skip_index3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), IndexMainActivity.class));
+            }
+        });
+        skip_index1.setVisibility(index == 0 ? View.VISIBLE:View.GONE);
+        skip_index2.setVisibility(index == 1 ? View.VISIBLE:View.GONE);
+        skip_index3.setVisibility(index == 2 ? View.VISIBLE:View.GONE);
         btn.setVisibility(index == 3? View.VISIBLE:View.GONE);
 
         return view;

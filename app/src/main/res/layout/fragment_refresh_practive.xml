@@ -45,7 +45,7 @@
 
         <com.scwang.refreshlayout.activity.MenuButton.SrcMenu
             android:id="@+id/src_menu"
-            android:layout_width="309dp"
+            android:layout_width="266dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
             srcmenu:position="left_bottom"
@@ -61,7 +61,7 @@
                     android:layout_width="370dp"
                     android:layout_height="37dp"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/composer_icn_plus" />
+                    android:src="@mipmap/add" />
             </RelativeLayout>
 
 
@@ -94,7 +94,7 @@
 
         <LinearLayout
             android:id="@+id/scores_ll"
-            android:layout_width="109dp"
+            android:layout_width="119dp"
             android:layout_height="match_parent"
             android:layout_weight="2">
 

@@ -2,6 +2,7 @@ package com.scwang.refreshlayout.activity.Award;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.AVUser;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,7 +49,9 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
     private Toolbar mToolbar;
     private RefreshLayout mRefreshLayout;
     private static boolean isFirstEnter = true;
-
+    private AVObject avObject;
+    private int stars;
+    private List<AVObject> mList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +70,29 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
             isFirstEnter = false;
             mRefreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果
         }
+        mRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+
+            }
+
+            @Override
+            public void onRefresh(@NonNull final RefreshLayout refreshLayout) {
+                refreshLayout.getLayout().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            updateStar();
+                        } catch (AVException e) {
+                            e.printStackTrace();
+                        }
+                        refreshLayout.finishRefresh();
+                        refreshLayout.setNoMoreData(false);//恢复上拉状态
+                    }
+                }, 2000);
+            }
+        });
+
 
         View view = findViewById(R.id.recyclerView);
         if (view instanceof RecyclerView) {
@@ -71,8 +102,8 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             List<Item> items = new ArrayList<>();
             items.addAll(Arrays.asList(Item.values()));
-            items.addAll(Arrays.asList(Item.values()));
-            items.addAll(Arrays.asList(Item.values()));
+//            items.addAll(Arrays.asList(Item.values()));
+//            items.addAll(Arrays.asList(Item.values()));
             recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(items, simple_list_item_2,this) {
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, Item model, int position) {
@@ -112,6 +143,26 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, colorPrimaryDark));
         }
+    }
+    private void updateStar() throws AVException {
+        mList.clear();
+        AVQuery<AVObject> avQuery1 =new AVQuery<>("Data_table");
+        mList = avQuery1.find();
+        String name = AVUser.getCurrentUser().getUsername();
+        for (int i=0;i<mList.size();i++)
+        {
+            if (name.compareTo(mList.get(i).getString("Name"))==0)
+            {
+                avObject = mList.get(i);
+                break;
+            }
+        }
+        stars = avObject.getInt("Scores");
+        int scores = 5;
+        String id = avObject.getObjectId();
+        AVObject todo = AVObject.createWithoutData("Data_table",id);
+        todo.put("Scores",stars-scores);
+        todo.saveInBackground();
     }
 
 

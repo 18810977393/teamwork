@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.activity.IndexMainActivity;
 import com.scwang.refreshlayout.activity.Mine.LoginActivity;
-import com.scwang.refreshlayout.splash.SplashActivity;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,27 +44,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         viewPager = (ViewPager)findViewById(R.id.vp_viewGuide);
         linearLayout = findViewById(R.id.ll_indicator);
 
-        judge();
         init();
-    }
-
-    private void judge() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                SharedPreferences setting = getSharedPreferences(SHARE_APP_TAG, 0);
-                Boolean user_first = setting.getBoolean("FIRST",true);
-                if(user_first){//第一次
-                    setting.edit().putBoolean("FIRST", false).commit();
-                    startActivity(new Intent(ViewPagerActivity.this ,
-                            LoginActivity.class));
-                }
-                else{//以后就没有引导页面了
-
-                }
-            }
-        },DELAY_TIME) ;
     }
 
     private void init() {
@@ -105,7 +85,7 @@ public class ViewPagerActivity extends AppCompatActivity {
     private void initDot() {
         int width = 30;
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,width);
-        lp.setMargins(0,0,2*width,0);
+        lp.setMargins(15,15,15,15);
 
         for (int i = 0 ; i < 4 ; i++)
         {

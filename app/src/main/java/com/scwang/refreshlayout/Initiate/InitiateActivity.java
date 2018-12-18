@@ -34,12 +34,12 @@ public class InitiateActivity extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(begin0,0000);
         handler.postDelayed(begin1,1000);
-        handler.postDelayed(begin3,6000);
+        handler.postDelayed(begin3,4000);
         if (whether_First_use){
-            handler.postDelayed(begin4,8000);
+            handler.postDelayed(begin4,6000);
         }
         else {
-            handler.postDelayed(begin5,8000);
+            handler.postDelayed(begin5,6000);
         }
 
     }
