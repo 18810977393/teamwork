@@ -2,6 +2,7 @@ package com.scwang.refreshlayout.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.avos.avoscloud.AVAnalytics;
@@ -113,6 +115,7 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
         final BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
+        judge();
         ViewPager viewPager = findViewById(R.id.content);
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
@@ -140,6 +143,20 @@ public class IndexMainActivity extends AppCompatActivity implements OnNavigation
         });
         //状态栏透明和间距处理
         StatusBarUtil.immersive(this, 0xff000000, 0.1f);
+
+    }
+
+    private void judge() {
+        SharedPreferences sharedPreferences = getSharedPreferences("FirstRun",0);
+        Boolean first_run = sharedPreferences.getBoolean("First",true);
+        if (first_run){
+            sharedPreferences.edit().putBoolean("First",false).commit();
+            startActivity(new Intent(IndexMainActivity.this,LoginActivity.class));
+        }
+        else {
+
+        }
+
 
     }
 
