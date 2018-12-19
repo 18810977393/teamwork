@@ -14,6 +14,7 @@ import java.util.List;
 
 public class AlarmReceiver extends BroadcastReceiver {
     private List<AVObject> mList = new ArrayList<>();
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if ("action".equals(intent.getAction())) {
@@ -23,12 +24,11 @@ public class AlarmReceiver extends BroadcastReceiver {
             } catch (AVException e) {
                 e.printStackTrace();
             }
-            for (int i=0;i<mList.size();i++)
-            {
-                if (mList.get(i).getInt("Type")==2) {
+            for (int i = 0; i < mList.size(); i++) {
+                if (mList.get(i).getInt("Type") == 2) {
                     String id = mList.get(i).getObjectId();
                     AVObject avObject = AVObject.createWithoutData(AVUser.getCurrentUser().getUsername(), id);
-                    avObject.put("times",0);
+                    avObject.put("times", 0);
                     avObject.put("status", true);
                     avObject.saveInBackground();
                 }
@@ -37,3 +37,4 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 }
+

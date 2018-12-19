@@ -50,7 +50,7 @@ public class DayTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_practice_repast);
         StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-//        Intent intent = new Intent(this,LongRunningService.class);
+//        Intent intent = new Intent(this,AlarmService.class);
 //        startService(intent);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(DayTaskActivity.this,
@@ -61,8 +61,8 @@ public class DayTaskActivity extends AppCompatActivity {
                 PendingIntent.FLAG_CANCEL_CURRENT);
         Calendar calendar = Calendar.getInstance();
         long currentTime = calendar.getTimeInMillis();
-        calendar.set(calendar.HOUR_OF_DAY,23);
-        calendar.set(calendar.MINUTE,59);
+        calendar.set(calendar.HOUR_OF_DAY,6);
+        calendar.set(calendar.MINUTE,00);
         calendar.set(calendar.SECOND,0);
 
         if (currentTime > calendar.getTimeInMillis()) {

@@ -89,7 +89,12 @@
         <activity android:name=".activity.Task.addTaskActivity" />
         <activity android:name=".activity.Task.TaskActivity" />
         <activity android:name=".activity.Task.ModifyTaskActivity" />
-        <activity android:name=".activity.Mine.RankingActivity"></activity>
+        <activity android:name=".activity.Mine.RankingActivity" />
+
+        <service
+            android:name=".activity.Task.AlarmService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
