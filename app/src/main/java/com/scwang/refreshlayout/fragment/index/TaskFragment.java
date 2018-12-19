@@ -3,6 +3,7 @@ package com.scwang.refreshlayout.fragment.index;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -67,6 +68,7 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
     }
 
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_refresh_practive, container, false);
@@ -86,7 +88,9 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
         super.onViewCreated(root, savedInstanceState);
         StatusBarUtil.setPaddingSmart(getContext(), root.findViewById(R.id.toolbar));
 
+
         final View view1 = root.findViewById(R.id.recyclerView);
+
         if (view1 instanceof RecyclerView) {
             RecyclerView recyclerView = (RecyclerView) view1;
             recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -144,6 +148,7 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
             }
         });
 
+
     }
 
 
@@ -156,5 +161,4 @@ public class TaskFragment extends Fragment implements AdapterView.OnItemClickLis
             FragmentActivity.start(this, item.clazz);
         }
     }
-
 }

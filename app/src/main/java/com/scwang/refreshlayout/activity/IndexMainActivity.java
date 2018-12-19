@@ -36,7 +36,7 @@ import com.scwang.refreshlayout.util.StatusBarUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.avos.avoscloud.Messages.OpType.count;
+
 
 public class IndexMainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 

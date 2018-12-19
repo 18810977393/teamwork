@@ -5,34 +5,6 @@
     android:id="@+id/rl_fgLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-
-    <Button
-        android:id="@+id/skip_index1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#88a78282"
-        android:gravity="center"
-        android:text="跳过"
-        android:textSize="15sp" />
-
-    <Button
-        android:id="@+id/skip_index2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#88a78282"
-        android:gravity="center"
-        android:text="跳过"
-        android:textSize="15sp" />
-
-    <Button
-        android:id="@+id/skip_index3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#88a78282"
-        android:gravity="center"
-        android:text="跳过"
-        android:textSize="15sp"
-         />
     <Button
         android:id="@+id/bt_joinBtn"
         android:layout_width="wrap_content"
@@ -43,7 +15,53 @@
         android:textSize="20sp"
         android:background="#88a78282"
         android:text="进入体验"
-        android:layout_marginBottom="40dp"
+        android:width="6dp"
+        android:height="0dp"
+        android:layout_marginBottom="63dp"
         />
+    <Button
+        android:id="@+id/skip_index1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#88a78282"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="跳过"
+        android:width="6dp"
+        android:height="0dp"
+        android:textSize="20sp"
+        android:layout_marginBottom="63dp"
+        />
+
+    <Button
+        android:id="@+id/skip_index2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#88a78282"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="跳过"
+        android:width="6dp"
+        android:height="0dp"
+        android:textSize="20sp"
+        android:layout_marginBottom="63dp"
+    />
+
+    <Button
+        android:id="@+id/skip_index3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#88a78282"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="跳过"
+        android:width="6dp"
+        android:height="0dp"
+        android:textSize="20sp"
+        android:layout_marginBottom="63dp" />
+
 
 </RelativeLayout>

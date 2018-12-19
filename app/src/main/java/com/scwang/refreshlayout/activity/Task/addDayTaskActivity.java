@@ -91,29 +91,34 @@ public class addDayTaskActivity extends AppCompatActivity {
                 showAlertDialog("添加失败", "成就点数为整数");
             }
             else
-                try {
-                    AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
-                    testObject.put("Title",fileName);
-                    testObject.put("Type",type);
-                    testObject.put("Scores",scores);
-                    testObject.put("Totaltime",times);
-                    testObject.put("times",0);
-                    testObject.put("status",true);
-                    testObject.saveInBackground(new SaveCallback() {
-                        @Override
-                        public void done(AVException e) {
-                            if(e == null){
-                                Log.d("saved","success!");
+                if (Integer.parseInt(scores) > 5){
+                    showAlertDialog("添加失败", "日常任务单次获取的星星最多为5");
+                }
+                else {
+                    try {
+                        AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
+                        testObject.put("Title",fileName);
+                        testObject.put("Type",type);
+                        testObject.put("Scores",scores);
+                        testObject.put("Totaltime",times);
+                        testObject.put("times",0);
+                        testObject.put("status",true);
+                        testObject.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if(e == null){
+                                    Log.d("saved","success!");
+                                }
                             }
-                        }
-                    });
-                    finish();
-                }
-                catch (Exception e) {
-                    showAlertDialog("添加失败", "请输入任务名称");
-                }
-                finally {
+                        });
+                        finish();
+                    }
+                    catch (Exception e) {
+                        showAlertDialog("添加失败", "请输入任务名称");
+                    }
+                    finally {
 
+                    }
                 }
         }
     }

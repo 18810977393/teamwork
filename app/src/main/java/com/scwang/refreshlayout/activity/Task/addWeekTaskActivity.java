@@ -95,30 +95,33 @@ public class addWeekTaskActivity extends AppCompatActivity {
                 showAlertDialog("添加失败", "成就点数为整数");
             }
             else
+            if (Integer.parseInt(scores) > 12){
+                showAlertDialog("添加失败", "每周任务单次获取的星星最多为12");
+            }
+            else {
                 try {
                     AVObject testObject = new AVObject(AVUser.getCurrentUser().getUsername());
-                    testObject.put("Title",fileName);
-                    testObject.put("Type",type);
-                    testObject.put("Scores",scores);
-                    testObject.put("Totaltime",times);
-                    testObject.put("times",0);
-                    testObject.put("status",true);
+                    testObject.put("Title", fileName);
+                    testObject.put("Type", type);
+                    testObject.put("Scores", scores);
+                    testObject.put("Totaltime", times);
+                    testObject.put("times", 0);
+                    testObject.put("status", true);
                     testObject.saveInBackground(new SaveCallback() {
                         @Override
                         public void done(AVException e) {
-                            if(e == null){
-                                Log.d("saved","success!");
+                            if (e == null) {
+                                Log.d("saved", "success!");
                             }
                         }
                     });
                     finish();
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     showAlertDialog("添加失败", "请输入任务名称");
-                }
-                finally {
+                } finally {
 
                 }
+            }
         }
     }
 

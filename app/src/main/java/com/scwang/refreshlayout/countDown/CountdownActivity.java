@@ -24,7 +24,8 @@ public class CountdownActivity extends AppCompatActivity {
     private ImageButton start_btn;
     private ImageView astronaut_iv;
     private  long  time=400;
-
+    private long lastClickTime = 0L;
+    private static final int FAST_CLICK_DELAY_TIME = 3000;  // 快速点击间隔
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -39,6 +40,47 @@ public class CountdownActivity extends AppCompatActivity {
         setContentView(R.layout.activity_countdown);
         init();
     }
+    public abstract static class OnMultiClickListener implements View.OnClickListener{
+        // 两次点击按钮之间的点击间隔不能少于1000毫秒
+        private static final int MIN_CLICK_DELAY_TIME = 3000;
+        private static long lastClickTime = 0;
+
+        public abstract void onMultiClick(View v);
+
+        @Override
+        public void onClick(View v) {
+            long curClickTime = System.currentTimeMillis();
+            if((curClickTime - lastClickTime) >= MIN_CLICK_DELAY_TIME) {
+                // 超过点击间隔后再将lastClickTime重置为当前点击时间
+                lastClickTime = curClickTime;
+                onMultiClick(v);
+            }
+        }
+    }
+    private boolean processFlag = true; //默认可以点击
+    /**
+     * 设置按钮在短时间内被重复点击的有效标识（true表示点击有效，false表示点击无效）
+     */
+    private synchronized void setProcessFlag() {
+        processFlag = false;
+    }
+
+    /**
+     * 计时线程（防止在一定时间段内重复点击按钮）
+     */
+    private class TimeThread extends Thread {
+        public void run() {
+            try {
+                sleep(3000);
+                processFlag = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
 
 
     private void init(){
@@ -51,24 +93,57 @@ public class CountdownActivity extends AppCompatActivity {
 
 
 
-        start_btn.setOnClickListener(new View.OnClickListener() {
+        start_btn.setOnClickListener(new OnMultiClickListener() {
+
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
+                start_btn.setEnabled(false);
                 String temp =  editText.getText().toString();
-                if (!TextUtils.isEmpty(temp)){
-                    int minute = Integer.valueOf(temp);
-                    time = minute*60;
+                if (processFlag) {
+                    setProcessFlag();
+                    if (!TextUtils.isEmpty(temp)){
+                        int minute = Integer.valueOf(temp);
+                        time = minute*60;
 
-                    startAnimation();
-                    handler.postDelayed(runnable, 1000);
-                    editText.setText("");
+                        startAnimation();
+                        handler.postDelayed(runnable, 1000);
+                        editText.setText("");
+                    }
+                    else{
+                        Toast.makeText(CountdownActivity.this,"输入框不能为空！",Toast.LENGTH_LONG).show();
+                    }
+                    new TimeThread().start();
                 }
-                else{
-                    Toast.makeText(CountdownActivity.this,"输入框不能为空！",Toast.LENGTH_LONG).show();
-                }
-
+                new Handler().postDelayed(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        start_btn.setEnabled(true);
+                    }
+                }, 3000);
             }
         });
+
+
+//        start_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String temp =  editText.getText().toString();
+//                if (!TextUtils.isEmpty(temp)){
+//                    int minute = Integer.valueOf(temp);
+//                    time = minute*60;
+//
+//                    startAnimation();
+//                    handler.postDelayed(runnable, 1000);
+//                    editText.setText("");
+//                }
+//                else{
+//                    Toast.makeText(CountdownActivity.this,"输入框不能为空！",Toast.LENGTH_LONG).show();
+//                }
+//
+//            }
+//        });
     }
 
     private void startAnimation() {

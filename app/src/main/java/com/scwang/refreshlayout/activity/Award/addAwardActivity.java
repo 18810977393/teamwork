@@ -90,6 +90,9 @@ public class addAwardActivity extends AppCompatActivity {
                     showAlertDialog("添加失败", "耗费成就点数为整数");
                 }
                 else
+                    if (Integer.parseInt(scores) < 100 || Integer.parseInt(scores) > 3000){
+                    showAlertDialog("添加失败", "奖励最低耗费点数为100");
+                    }
                     try {
 
 
