@@ -27,11 +27,11 @@
     <string name="title_activity_style_bezier">贝塞尔雷达</string>
     <string name="title_activity_style_classics">经典风格</string>
     <string name="title_activity_style_circle">弹出圆圈</string>
-    <string name="title_activity_style_battle_city">战争城市</string>
-    <string name="title_activity_style_hit_block">打砖块</string>
+    <string name="title_activity_style_battle_city">战争城市_3星星/次</string>
+    <string name="title_activity_style_hit_block">打砖块_3星星/次</string>
     <string name="title_activity_style_storehouse">StoreHouse</string>
     <string name="title_activity_style_drop_box">掉落盒子</string>
-    <string name="title_activity_style_delivery">奖励清单</string>
+    <string name="title_activity_style_delivery">给自己的小礼物</string>
 
 
     <string name="title_activity_example_basic">基本使用</string>

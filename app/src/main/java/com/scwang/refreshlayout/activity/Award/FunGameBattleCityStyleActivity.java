@@ -158,7 +158,7 @@ public class FunGameBattleCityStyleActivity extends AppCompatActivity implements
             }
         }
         stars = avObject.getInt("Scores");
-        int scores = 10;
+        int scores = 3;
         String id = avObject.getObjectId();
         AVObject todo = AVObject.createWithoutData("Data_table",id);
         todo.put("Scores",stars-scores);
