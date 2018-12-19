@@ -1,6 +1,7 @@
 package com.scwang.refreshlayout.adapter;
 
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -62,6 +63,7 @@ public class SmartViewHolder extends RecyclerView.ViewHolder implements View.OnC
         View view = findViewById(id);
         if (view instanceof TextView) {
             ((TextView) view).setText(sequence);
+            ((TextView)view).setTextSize(18);
         }
         return this;
     }
@@ -70,6 +72,7 @@ public class SmartViewHolder extends RecyclerView.ViewHolder implements View.OnC
         View view = findViewById(id);
         if (view instanceof TextView) {
             ((TextView) view).setText(stringRes);
+            ((TextView)view).setTextSize(18);
         }
         return this;
     }
@@ -77,7 +80,7 @@ public class SmartViewHolder extends RecyclerView.ViewHolder implements View.OnC
     public SmartViewHolder textColorId(int id, int colorId) {
         View view = findViewById(id);
         if (view instanceof TextView) {
-            ((TextView) view).setTextColor(ContextCompat.getColor(view.getContext(), colorId));
+            ((TextView) view).setTextColor(Color.parseColor("#B0E0E6"));//(android.graphics.Color.BLUE);//(ContextCompat.getColor(view.getContext(), colorId));
         }
         return this;
     }
